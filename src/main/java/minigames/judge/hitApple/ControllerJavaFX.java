@@ -1,5 +1,6 @@
-package minigames.judge;
+package minigames.judge.hitApple;
 
+import minigames.judge.сontrol.Transfer;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 
@@ -15,7 +16,7 @@ public class ControllerJavaFX {
         control();
     }
 
-    public void control()  {
+    private void control()  {
 
         scene.setOnMousePressed(event -> {
 
@@ -32,7 +33,7 @@ public class ControllerJavaFX {
         });
     }
 
-    public void shut() {
+    private void shut() {
         court.aim.setGoVertical(false);
         Apple apple = new Apple(new Point2D(court.aim.getLayoutX(), court.aim.getLayoutY()));
         result = court.prisoner.contains(court.prisoner.sceneToLocal(apple.getLayoutOfApple()));
@@ -41,7 +42,7 @@ public class ControllerJavaFX {
 
     }
 
-    public void checkOfResult(Apple apple){
+    private void checkOfResult(Apple apple){
         if(result) {
             new Transfer().sendResult(result);
             return;
@@ -56,11 +57,11 @@ public class ControllerJavaFX {
 
     }
 
-    public int getCounterOfShuts() {
+    private int getCounterOfShuts() {
         return counterOfShuts;
     }
 
-    public void incrementCounterOfShuts() {
+    private void incrementCounterOfShuts() {
         this.counterOfShuts = ++counterOfShuts;
     }
 }

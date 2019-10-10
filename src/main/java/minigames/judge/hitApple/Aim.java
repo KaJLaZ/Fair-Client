@@ -1,9 +1,10 @@
-package minigames.judge;
+package minigames.judge.hitApple;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
-public class Aim extends Pane implements  Runnable{
+
+public class Aim extends Pane implements Runnable {
     private static final int SPEED = 3;
     private static final double BASE_LAYOUTx = 450;
     private static final double BASE_LAYOUTy = 340;
@@ -58,14 +59,14 @@ public class Aim extends Pane implements  Runnable{
 
     @Override
     public void run() {
-        try {
-            goHorizontal();
-            goVertical = true;
-            goVertical();
+            try {
+                goHorizontal();
+                goVertical = true;
+                goVertical();
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
     }
     public void setGoHorizontal(boolean goHorizontal) {
         this.goHorizontal = goHorizontal;

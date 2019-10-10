@@ -1,16 +1,17 @@
-package minigames.drinkers;
+package minigames.garden;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Gardens extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        MainDisplay.display();
+        MainWindow.display();
     }
 
+
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 }

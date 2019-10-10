@@ -3,8 +3,10 @@ package minigames.judge;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import minigames.judge.hitApple.ControllerJavaFX;
+import minigames.judge.hitApple.Court;
 
-public class Main extends Application {
+public class Judge extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
