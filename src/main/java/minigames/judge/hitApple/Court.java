@@ -1,4 +1,4 @@
-package HitApple;
+package minigames.judge.hitApple;
 
 import javafx.scene.Group;
 import javafx.scene.paint.Color;

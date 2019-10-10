@@ -1,11 +1,11 @@
-package Control;
+package minigames.judge.сontrol;
 
 import java.io.*;
 import java.net.*;
 
 public class Transfer {
 
-    private final String ADDRESS = "http://localhost:8080/gameСommands/setSequence";
+    private final String ADDRESS = "http://localhost:8080/gameCommands/setSequence";
 
     public void sendResult(boolean result) {
         StringBuffer content = new StringBuffer();

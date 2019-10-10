@@ -1,7 +1,8 @@
-package Story;
+package minigames.judge.story;
 
-import Control.Transfer;
-import HitApple.StageOfGame;
+import minigames.judge.сontrol.Transfer;
+import minigames.judge.hitApple.StageOfGame;
+import Story.Litigation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -10,9 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import minigames.judge.hitApple.StageOfGame;
+import minigames.judge.сontrol.Transfer;
 
 public class Display {
-    private Litigation litigation;
+    private Story.Litigation litigation;
     private Stage stage;
     private Text personDescription;
     private Text faultDesc;

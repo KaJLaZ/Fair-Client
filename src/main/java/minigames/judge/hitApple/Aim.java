@@ -1,4 +1,4 @@
-package HitApple;
+package minigames.judge.hitApple;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;

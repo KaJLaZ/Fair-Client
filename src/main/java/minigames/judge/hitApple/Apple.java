@@ -1,4 +1,4 @@
-package HitApple;
+package minigames.judge.hitApple;
 
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;

@@ -1,4 +1,4 @@
-package HitApple;
+package minigames.judge.hitApple;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;

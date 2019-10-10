@@ -1,6 +1,6 @@
-package HitApple;
+package minigames.judge.hitApple;
 
-import Control.Transfer;
+import minigames.judge.сontrol.Transfer;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 
