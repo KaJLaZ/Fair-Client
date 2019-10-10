@@ -1,9 +1,10 @@
-package minigames.judge;
+package HitApple;
 
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+
 
 public class Apple extends Pane {
 
@@ -31,3 +32,4 @@ public class Apple extends Pane {
     }
 
 }
+
