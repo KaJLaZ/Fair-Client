@@ -14,7 +14,6 @@ public class MainDisplay {
     private static Scene scene;
     private static Drinking drinking = new Drinking();
 
-
     public static void display() {
         Label hint=new Label("NUM 1 to drink | NUM2 to pass");
         hint.setLayoutX(0);
@@ -24,10 +23,7 @@ public class MainDisplay {
         scene = new Scene(layout, 1000, 800);
         layout.getChildren().add(drinking.playerDrunk);
         layout.getChildren().add(hint);
-        //layout.getChildren().add(drinking.door);
-        //layout.getChildren().add(drinking.glass);
-        //layout.getChildren().add(drinking.npcDrunk);
-        //layout.getChildren().add(drinking.status);
+
 
         scene.setOnKeyPressed(new Keyboard());
         stage.setScene(scene);

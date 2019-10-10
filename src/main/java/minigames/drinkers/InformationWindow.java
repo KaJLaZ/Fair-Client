@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class InformationWindow {
+
     private static Group layout;
     private static Scene scene;
     private static final int WINDOWWIDTH = 200;

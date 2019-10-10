@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class Connector {
 
-    private static final String PATH = "http://localhost:8080";
+    private static final String PATH = "http://localhost:8080/gameCommands";
     private static final String DRINK = PATH+"/drink";
     private static final String PASS = PATH+"/pass";
     private static final String PREDICTIONER = PATH+"/prediction";
@@ -20,6 +20,7 @@ public class Connector {
     private int npcIntoxication;
     private int[] stats;
     private boolean endGame;
+    private String winner;
 
     private static ObjectMapper mapper = new ObjectMapper();
 
@@ -69,8 +70,25 @@ public class Connector {
         return getBoolFromServer(PREDICTIONER);
     }
 
-    public boolean isWon() {
-        return getBoolFromServer(WINNER);
+    public String getWinner(){
+        winner=getStringFromServer(WINNER);
+        return winner;
+    }
+
+    public String getStringFromServer(String string) {
+        try {
+            URL url = new URL(string);
+           winner=mapper.readValue(url,String.class);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return winner;
     }
 
 

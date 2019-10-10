@@ -10,8 +10,7 @@ public class Main extends Application {
         MainDisplay.display();
     }
 
-
     public static void main(String[] args) {
-        launch(args);
+        launch();
     }
 }
