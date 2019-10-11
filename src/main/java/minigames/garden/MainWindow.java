@@ -14,8 +14,11 @@ public class MainWindow {
     private static Garden garden = new Garden();
     private static final int WINDOWWIDTH = 1125;
     private static final int WINDOWHEIGHT = 800;
+    public MainWindow(){
+        display();
+    }
 
-    public static void display() {
+    public void display() {
         Stage window = new Stage();
         layout = new Group();
         scene = new Scene(layout, WINDOWWIDTH, WINDOWHEIGHT);
@@ -29,7 +32,7 @@ public class MainWindow {
         window.show();
     }
 
-    private static class Mover implements EventHandler<KeyEvent> {
+    private class Mover implements EventHandler<KeyEvent> {
         @Override
         public void handle(KeyEvent event) {
             switch (event.getCode()) {

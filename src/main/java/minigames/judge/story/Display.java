@@ -2,7 +2,6 @@ package minigames.judge.story;
 
 import minigames.judge.сontrol.Transfer;
 import minigames.judge.hitApple.StageOfGame;
-import Story.Litigation;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
@@ -15,7 +14,7 @@ import minigames.judge.hitApple.StageOfGame;
 import minigames.judge.сontrol.Transfer;
 
 public class Display {
-    private Story.Litigation litigation;
+    private Litigation litigation;
     private Stage stage;
     private Text personDescription;
     private Text faultDesc;
@@ -29,9 +28,9 @@ public class Display {
         initStage();
     }
 
+
     private void initStage(){
-        litigation = new Litigation("Person Description",
-                "faultDesc", "descPosChoice", "descNegChoice");
+        initLitigation();
         initComponents();
         stage = new Stage();
         stage.setHeight(500);
@@ -40,6 +39,10 @@ public class Display {
         control();
         stage.show();
     }
+    private void initLitigation(){
+        litigation = new Connectioner().getLitigation();
+    }
+
 
     private void initComponents(){
         initTextAndButtons();
@@ -72,7 +75,7 @@ public class Display {
         text.setLayoutY(20);
         text.setFont(Font.font("Verdana", 14));
     }
-//comment
+
     private void control(){
         nextButton.setOnAction(event -> {
             group.getChildren().removeAll(personDescription, nextButton);
@@ -88,8 +91,5 @@ public class Display {
             stage.hide();
             new StageOfGame();
         });
-
-
     }
-
 }

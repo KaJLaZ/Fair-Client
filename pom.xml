@@ -17,6 +17,7 @@
         <jackson-annotations-version>2.9.8</jackson-annotations-version>
         <jackson-datatype-jdk8-version>2.9.9</jackson-datatype-jdk8-version>
         <lombok-version>1.18.10</lombok-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 
