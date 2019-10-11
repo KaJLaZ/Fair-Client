@@ -14,9 +14,6 @@ public class MainWindow {
     private static Garden garden = new Garden();
     private static final int WINDOWWIDTH = 1125;
     private static final int WINDOWHEIGHT = 800;
-    public MainWindow(){
-        display();
-    }
 
     public void display() {
         Stage window = new Stage();

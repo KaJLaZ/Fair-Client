@@ -15,10 +15,6 @@ public class BoxDrawWindow {
     private static final int WINDOW_WIDTH = 1125;
     private static final int WINDOW_HEIGHT = 800;
 
-    public BoxDrawWindow(){
-        display();
-    }
-
     public void display() {
         Stage window = new Stage();
         layout = new Group();

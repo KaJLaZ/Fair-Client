@@ -25,10 +25,6 @@ public class MainWindow {
     private Button forgive;
     private boolean choice;
 
-    public MainWindow(){
-        display();
-    }
-
     public void display(){
         initLitigation();
         initComponents();
@@ -36,13 +32,7 @@ public class MainWindow {
         control();
     }
 
-    private void initStage(){
-        stage = new Stage();
-        stage.setHeight(500);
-        stage.setWidth(800);
-        stage.setScene(scene);
-        stage.show();
-    }
+
     private void initLitigation(){
         litigation = new Connectioner().getLitigation();
     }
@@ -78,6 +68,14 @@ public class MainWindow {
         text.setLayoutX(8);
         text.setLayoutY(20);
         text.setFont(Font.font("Verdana", 14));
+    }
+
+    private void initStage(){
+        stage = new Stage();
+        stage.setHeight(500);
+        stage.setWidth(800);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void control(){
