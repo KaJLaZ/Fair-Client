@@ -2,18 +2,28 @@ package core;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import lombok.NonNull;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class Day {
-    private Application[] games;
+    private ArrayList<Playable> games;
 
-    private GameContext context;
+    public void addGame(@NonNull Playable game){
+        games.add(game);
+    }
 
-    public Day(Application[] games, GameContext context) {
-        this.games = games;
-        this.context = context;
+    public void addGames(@NonNull Collection<Playable> games){
+        for(Playable i : games){
+            if(i == null)
+                throw new NullPointerException("one of Collections element is null");
+        }
+        this.games.addAll(games);
     }
 
     public void startDay() throws Exception{
-        games[2].start(new Stage());
+        for (Playable i: games)
+            i.display();
     }
 }

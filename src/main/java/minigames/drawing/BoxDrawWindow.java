@@ -1,5 +1,6 @@
 package minigames.drawing;
 
+import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,13 +9,17 @@ import javafx.stage.Stage;
 
 import java.util.Arrays;
 
-public class BoxDrawWindow {
+public class BoxDrawWindow implements Playable {
 
     private static Group layout;
     private static Scene scene;
     private static final int WINDOW_WIDTH = 1125;
     private static final int WINDOW_HEIGHT = 800;
 
+    public BoxDrawWindow(){
+        display();
+    }
+    @Override
     public void display() {
         Stage window = new Stage();
         layout = new Group();
