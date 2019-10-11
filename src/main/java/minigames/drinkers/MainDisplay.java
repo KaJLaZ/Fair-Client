@@ -14,7 +14,7 @@ public class MainDisplay {
     private static Scene scene;
     private static Drinking drinking = new Drinking();
 
-    public static void display() {
+    public  void display() {
         Label hint=new Label("NUM 1 to drink | NUM2 to pass");
         hint.setLayoutX(0);
         hint.setLayoutY(0);
