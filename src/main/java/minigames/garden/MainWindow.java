@@ -1,5 +1,6 @@
 package minigames.garden;
 
+import core.Playable;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -7,14 +8,14 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class MainWindow {
+public class MainWindow implements Playable {
 
     private static Group layout;
     private static Scene scene;
     private static Garden garden = new Garden();
     private static final int WINDOWWIDTH = 1125;
     private static final int WINDOWHEIGHT = 800;
-
+    @Override
     public void display() {
         Stage window = new Stage();
         layout = new Group();

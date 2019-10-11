@@ -1,5 +1,6 @@
 package minigames.judge.story;
 
+import core.Playable;
 import minigames.judge.сontrol.Transfer;
 import minigames.judge.hitApple.StageOfGame;
 import javafx.event.ActionEvent;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 import minigames.judge.hitApple.StageOfGame;
 import minigames.judge.сontrol.Transfer;
 
-public class MainWindow {
+public class MainWindow implements Playable {
     private Litigation litigation;
     private Stage stage;
     private Text personDescription;

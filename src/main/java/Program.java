@@ -1,5 +1,8 @@
+import minigames.drinkers.MainDisplay;
+import minigames.judge.story.MainWindow;
+
 public class Program {
     public static void main(String[] args) {
-        Play.Play();
+        new MainDisplay().display();
     }
 }

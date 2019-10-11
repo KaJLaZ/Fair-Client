@@ -26,4 +26,8 @@ public class Day {
         for (Playable i: games)
             i.display();
     }
+
+    public Day(ArrayList<Playable> games) {
+        this.games = games;
+    }
 }
