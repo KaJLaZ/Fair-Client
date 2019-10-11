@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Connectioner {
-    private static final String ADDRESS = "http://localhost:8080/gameCommands/getLitigation";
+    private static final String ADDRESS = "http://localhost:8080/gameCommands/getLigation";
     private ObjectMapper mapper;
     private Litigation litigation;
 

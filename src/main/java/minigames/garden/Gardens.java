@@ -7,7 +7,7 @@ public class Gardens extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        new MainWindow().display();
+        new MainWindow();
     }
 
 
