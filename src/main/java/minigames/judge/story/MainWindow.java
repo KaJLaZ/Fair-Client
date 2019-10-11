@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import minigames.judge.hitApple.StageOfGame;
 import minigames.judge.сontrol.Transfer;
 
-public class Display {
+public class MainWindow {
     private Litigation litigation;
     private Stage stage;
     private Text personDescription;
@@ -24,19 +24,23 @@ public class Display {
     private Button throwApple;
     private Button forgive;
     private boolean choice;
-    public Display(){
-        initStage();
+
+    public MainWindow(){
+        display();
     }
 
-
-    private void initStage(){
+    public void display(){
         initLitigation();
         initComponents();
+        initStage();
+        control();
+    }
+
+    private void initStage(){
         stage = new Stage();
         stage.setHeight(500);
         stage.setWidth(800);
         stage.setScene(scene);
-        control();
         stage.show();
     }
     private void initLitigation(){

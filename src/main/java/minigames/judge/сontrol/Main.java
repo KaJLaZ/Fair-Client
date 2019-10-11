@@ -1,8 +1,8 @@
 package minigames.judge.сontrol;
 
-import minigames.judge.story.Display;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import minigames.judge.story.MainWindow;
 
 public class Main extends Application {
 
@@ -12,6 +12,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        new Display();
+        new MainWindow();
     }
 }

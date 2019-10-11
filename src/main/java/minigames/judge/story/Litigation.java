@@ -32,4 +32,7 @@ public class Litigation {
         this.descNegChoice = descNegChoice;
 
     }
+    public Litigation(){
+
+    }
 }
