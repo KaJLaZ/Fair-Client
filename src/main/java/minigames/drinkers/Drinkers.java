@@ -7,7 +7,8 @@ public class Drinkers extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        MainDisplay.display();
+        MainDisplay mainDisplay = new MainDisplay();
+        mainDisplay.display();
     }
 
     public static void main(String[] args) {
