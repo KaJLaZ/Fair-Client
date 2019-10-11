@@ -10,7 +10,6 @@ public class Drawing extends Application {
         new BoxDrawWindow();
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }
