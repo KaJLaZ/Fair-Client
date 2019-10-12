@@ -1,5 +1,6 @@
 package minigames.judge.hitApple;
 
+import javafx.stage.Stage;
 import minigames.judge.сontrol.Transfer;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
@@ -9,10 +10,12 @@ public class ControllerJavaFX {
     private int counterOfShuts;
     private Scene scene;
     private Court court;
-    public ControllerJavaFX(Scene scene, Court court){
+    private Stage stage;
+    public ControllerJavaFX(Scene scene, Court court, Stage stage){
         counterOfShuts = 0;
         this.scene = scene;
         this.court = court;
+        this.stage = stage;
         control();
     }
 
@@ -24,7 +27,6 @@ public class ControllerJavaFX {
                 if (getCounterOfShuts() == 3) {
                     return;
                 }
-                incrementCounterOfShuts();
                 court.aim.setGoHorizontal(false);
             } else {
                 shut();
@@ -34,6 +36,7 @@ public class ControllerJavaFX {
     }
 
     private void shut() {
+        ++counterOfShuts;
         court.aim.setGoVertical(false);
         Apple apple = new Apple(new Point2D(court.aim.getLayoutX(), court.aim.getLayoutY()));
         result = court.prisoner.contains(court.prisoner.sceneToLocal(apple.getLayoutOfApple()));
@@ -45,6 +48,7 @@ public class ControllerJavaFX {
     private void checkOfResult(Apple apple){
         if(result) {
             new Transfer().sendResult(result);
+            stage.hide();
             return;
         }
         if (!result && counterOfShuts != 3) {
@@ -54,6 +58,7 @@ public class ControllerJavaFX {
             return;
         }
         new Transfer().sendResult(result);
+        stage.hide();
 
     }
 
@@ -61,7 +66,4 @@ public class ControllerJavaFX {
         return counterOfShuts;
     }
 
-    private void incrementCounterOfShuts() {
-        this.counterOfShuts = ++counterOfShuts;
-    }
 }
