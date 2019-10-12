@@ -113,7 +113,7 @@ public class MainWindow implements Playable {
               new Transfer().sendResult(choice);
               stage.hide();
         });
-        guilty.setOnAction(event -> {
+        throwApple.setOnAction(event -> {
             stage.hide();
             new LaunchApple();
         });
