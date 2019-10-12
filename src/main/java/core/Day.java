@@ -7,7 +7,7 @@ import lombok.NonNull;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Day {
+public class Day{
     private ArrayList<Playable> games;
 
     public void addGame(@NonNull Playable game){
@@ -22,12 +22,13 @@ public class Day {
         this.games.addAll(games);
     }
 
-    public void startDay() throws Exception{
-        for (Playable i: games)
-            i.display();
-    }
-
     public Day(ArrayList<Playable> games) {
         this.games = games;
+    }
+
+    public void startDay(){
+        for(Playable i: games) {
+            i.display();
+        }
     }
 }
