@@ -1,29 +1,30 @@
 package minigames.judge.story;
 
 import core.Playable;
+
 import minigames.judge.сontrol.Transfer;
-import minigames.judge.hitApple.StageOfGame;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import minigames.judge.hitApple.LaunchApple;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import minigames.judge.hitApple.StageOfGame;
-import minigames.judge.сontrol.Transfer;
 
 public class MainWindow implements Playable {
     private Litigation litigation;
     private Stage stage;
     private Text personDescription;
     private Text faultDesc;
+    private Text descPosChoice;
+    private Text descNegChoice;
     private Group group;
     private Scene scene;
     private Button nextButton;
-    private Button throwApple;
+    private Button guilty;
     private Button forgive;
+    private Button goAway;
+    private Button throwApple;
     private boolean choice;
 
     public void display(){
@@ -45,11 +46,18 @@ public class MainWindow implements Playable {
         scene = new Scene(group);
     }
     private void initTextAndButtons(){
+
         personDescription = new Text(litigation.getPersonDescription());
         setFeaturesOfTexts(personDescription);
 
         faultDesc = new Text(litigation.getFaultDesc());
         setFeaturesOfTexts(faultDesc);
+
+        descPosChoice = new Text(litigation.getDescPosChoice());
+        setFeaturesOfTexts(descPosChoice);
+
+        descNegChoice = new Text(litigation.getDescNegChoice());
+        setFeaturesOfTexts(descNegChoice);
 
 
         nextButton = new Button("Ok");
@@ -60,8 +68,16 @@ public class MainWindow implements Playable {
         forgive.setLayoutX(320);
         forgive.setLayoutY(300);
 
-        throwApple = new Button("Throw apple");
-        throwApple.setLayoutX(380);
+        guilty = new Button("Guilty");
+        guilty.setLayoutX(380);
+        guilty.setLayoutY(300);
+
+        goAway = new Button("goAway");
+        goAway.setLayoutX(350);
+        goAway.setLayoutY(300);
+
+        throwApple = new Button("throwApple");
+        throwApple.setLayoutX(350);
         throwApple.setLayoutY(300);
 
     }
@@ -82,17 +98,24 @@ public class MainWindow implements Playable {
     private void control(){
         nextButton.setOnAction(event -> {
             group.getChildren().removeAll(personDescription, nextButton);
-            group.getChildren().addAll(faultDesc, forgive, throwApple);
+            group.getChildren().addAll(faultDesc, forgive, guilty);
         });
-
         forgive.setOnAction(event -> {
-            choice = true;
-            new Transfer().sendResult(choice);
-            stage.hide();
+            group.getChildren().removeAll(faultDesc, forgive, guilty);
+            group.getChildren().addAll(descPosChoice, goAway);
         });
-        throwApple.setOnAction(event -> {
+        guilty.setOnAction(event -> {
+            group.getChildren().removeAll(faultDesc, forgive, guilty);
+            group.getChildren().addAll(descNegChoice, throwApple);
+        });
+        goAway.setOnAction(event -> {
+              choice = false;
+              new Transfer().sendResult(choice);
+              stage.hide();
+        });
+        guilty.setOnAction(event -> {
             stage.hide();
-            new StageOfGame();
+            new LaunchApple();
         });
     }
 }
