@@ -11,7 +11,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class MainWindow implements Playable {
+public class Judge implements Playable {
     private Litigation litigation;
     private Stage stage;
     private Text personDescription;

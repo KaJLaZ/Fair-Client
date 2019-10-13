@@ -8,7 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import minigames.drinkers.MainDisplay;
-import minigames.judge.story.MainWindow;
+import minigames.judge.story.Judge;
 
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class Loby {
 
-    private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(new MainWindow(), new MainDisplay()));
+    private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(new MainDisplay(), new Judge()));
     private Stage stage;
     private Group group;
     private int numberOfGame;

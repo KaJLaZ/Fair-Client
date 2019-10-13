@@ -1,7 +1,6 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
-import minigames.drinkers.MainDisplay;
-import minigames.judge.story.MainWindow;
+import minigames.loby.Loby;
 
 public class Program extends Application {
 
@@ -11,6 +10,6 @@ public class Program extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Play.Play();
+        new Loby();
     }
 }
