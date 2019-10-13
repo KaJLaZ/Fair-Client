@@ -1,8 +1,6 @@
 package minigames.loby;
 
 import core.Playable;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,48 +11,60 @@ import minigames.drinkers.MainDisplay;
 import minigames.judge.story.MainWindow;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Loby {
 
-    private ArrayList<Playable> games = new ArrayList<>();
-    Stage stage;
-    Group group;
-    int num; // number of game, will get it from server
-    String describe; // describe of the next game, will get it from server
-    Text text;
-    Button nextGame;
+    private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(new MainWindow(), new MainDisplay()));
+    private Stage stage;
+    private Group group;
+    private int numberOfGame; // number of game, will get it from server
+    private String describe; // describe of the next game, will get it from server
+    private Text text;
+    private Button nextGame;
+    private Game game;
 
     public Loby(){
         init();
     }
 
     private void init() {
-        games.add(new MainWindow());
-        games.add(new MainDisplay());
-        stage = new Stage();
-        num = 0;
-        describe = "Teeeeeeeeeeeeeeeeeeexxxxxxxxxxxxxxxxttttttttttttt";
-        group = new Group();
+        initGame();
+        initTextAndButton();
+        initGroup();
+        initStage();
+    }
+    private void initGame(){
+        game = new LobyConnectioner().getGame();
+        numberOfGame = game.getGame().getNumberOfGame();
+        describe = game.getDescription();
+    }
+    private void initTextAndButton(){
+
         text = new Text(describe);
-
-        nextGame = new Button("Ok");
-        nextGame.setLayoutX(350);
-        nextGame.setLayoutY(300);
-
         text.setLayoutX(8);
         text.setLayoutY(20);
         text.setFont(Font.font("Verdana", 14));
 
+        nextGame = new Button("Ok");
+        nextGame.setLayoutX(350);
+        nextGame.setLayoutY(300);
+    }
+    private void initGroup(){
+        group = new Group();
         group.getChildren().addAll(text, nextGame);
-        stage.setScene(new Scene(group));
+    }
 
+    private void initStage(){
+        stage = new Stage();
+        stage.setScene(new Scene(group));
         stage.show();
         control();
-
     }
-    public void control(){
+
+    private void control(){
         nextGame.setOnAction(event -> {
-            games.get(num).display();
+            games.get(numberOfGame).display();
             stage.hide();
         });
     }

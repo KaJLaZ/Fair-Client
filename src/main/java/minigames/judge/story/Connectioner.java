@@ -14,7 +14,7 @@ public class Connectioner {
         getLitigationFromServer();
     }
 
-    public void getLitigationFromServer(){
+    private void getLitigationFromServer(){
         try {
             mapper = new ObjectMapper();
             URL url = new URL(ADDRESS);

@@ -8,27 +8,27 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class Day{
-    private ArrayList<Playable> games;
+	private ArrayList<Playable> games;
 
-    public void addGame(@NonNull Playable game){
-        games.add(game);
-    }
+	public void addGame(@NonNull Playable game){
+		games.add(game);
+	}
 
-    public void addGames(@NonNull Collection<Playable> games){
-        for(Playable i : games){
-            if(i == null)
-                throw new NullPointerException("one of Collections element is null");
-        }
-        this.games.addAll(games);
-    }
+	public void addGames(@NonNull Collection<Playable> games){
+		for(Playable i : games){
+			if(i == null)
+				throw new NullPointerException("one of Collections element is null");
+		}
+		this.games.addAll(games);
+	}
 
-    public Day(ArrayList<Playable> games) {
-        this.games = games;
-    }
+	public Day(ArrayList<Playable> games) {
+		this.games = games;
+	}
 
-    public void startDay(){
-        for(Playable i: games) {
-            i.display();
-        }
-    }
+	public void startDay(){
+		for(Playable i: games) {
+			i.display();
+		}
+	}
 }
