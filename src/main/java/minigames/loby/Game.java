@@ -33,5 +33,8 @@ public class Game {
         this.description = description;
         this.game = game;
     }
+    public Game(){
+
+    }
 }
 

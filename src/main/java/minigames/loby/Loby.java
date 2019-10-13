@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import minigames.drinkers.MainDisplay;
 import minigames.judge.story.MainWindow;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,8 +19,8 @@ public class Loby {
     private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(new MainWindow(), new MainDisplay()));
     private Stage stage;
     private Group group;
-    private int numberOfGame; // number of game, will get it from server
-    private String describe; // describe of the next game, will get it from server
+    private int numberOfGame;
+    private String describe;
     private Text text;
     private Button nextGame;
     private Game game;

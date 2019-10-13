@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 
 public class LobyConnectioner {
-    private static final String ADDRESS = "http://localhost:8080/gameCommands/getGame";
+    private static final String ADDRESS = "http://localhost:8080//gameCommands/getGame";
     private ObjectMapper mapper;
     private Game game;
 
