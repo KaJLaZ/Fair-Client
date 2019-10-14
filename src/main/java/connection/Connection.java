@@ -1,4 +1,4 @@
-package minigames.garden;
+package connection;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Connectioner {
-    private static final String PATH = "http://localhost:8080/";
+public class Connection {
+    private static final String PATH = "http://localhost:8080/gameCommands/";
     private static final String ARRAY = PATH + "array";
     private static final String UP = PATH + "up";
     private static final String DOWN = PATH + "down";

@@ -3,6 +3,7 @@ package minigames.drawing;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import lombok.Getter;
@@ -34,7 +35,7 @@ public class DrawField {
         for (int i = 0; i < field.length; i++) {
             for (int j = 0; j < field[i].length; j++) {
                 field[i][j] = new Rectangle(j * WIDTH + START_WIDTH, i * HEIGHT + START_HEIGHT, WIDTH, HEIGHT);
-                field[i][j].setFill(new ImagePattern(new Image(FALSE)));
+                field[i][j].setFill(Paint.valueOf("red"));
                 int finalI = i;
                 int finalJ = j;
                 field[i][j].setOnMouseClicked(e -> {
@@ -48,10 +49,10 @@ public class DrawField {
         try {
             box[x][y] = !box[x][y];
             if (box[x][y]) {
-                field[x][y].setFill(new ImagePattern(new Image(TRUE)));
+                field[x][y].setFill(Paint.valueOf("green"));
             }
             else {
-                field[x][y].setFill(new ImagePattern(new Image(FALSE)));
+                field[x][y].setFill(Paint.valueOf("red"));
             }
         }
         catch (IndexOutOfBoundsException e) {

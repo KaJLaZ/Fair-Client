@@ -1,8 +1,8 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
-import minigames.loby.Loby;
+import core.Lobby;
 
-public class Program extends Application {
+public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -10,6 +10,6 @@ public class Program extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        new Loby();
+        new Lobby();
     }
 }

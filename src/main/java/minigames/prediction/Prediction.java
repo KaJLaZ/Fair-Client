@@ -1,62 +1,37 @@
 package minigames.prediction;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import connection.Connector;
+import core.Playable;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-public class Prediction {
-
-    private static final String PATH = "http://localhost:8080/gameCommands";
-    private static final String CONSEQUENCE = PATH + "/getConsequence";
-    private static final String PREDICTIONER = PATH+"/prediction";
-
-    ObjectMapper mapper =new ObjectMapper();
-    private String consequence ;
+public class Prediction implements Playable {
+    private static Group layout;
+    private static Scene scene;
+    Connector connector = new Connector();
+    Label consequence;
 
 
-    public String getConsequence(){
+    @Override
+    public void play() {
+        Stage stage = new Stage();
+        layout = new Group();
 
-        
-         consequence="Ви занадто п'яні щоб бачити передбачення";
+        Label label = new Label("Сон");
 
-        return consequence;
-    }
+        label.setLayoutX(480);
+        label.setLayoutY(0);
+        consequence = new Label();
+        consequence.setText(connector.getConsequenceFromServer());
+        consequence.setLayoutX(0);
+        consequence.setLayoutY(15);
+        layout.getChildren().addAll(label,consequence);
 
 
-    private boolean getBoolFromServer(String address) {
-        try {
-            URL url = new URL(address);
-            return mapper.readValue(url,boolean.class);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (JsonParseException e) {
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public String getStringFromServer(String string) {
-        try {
-            URL url = new URL(string);
-            consequence=mapper.readValue(url,String.class);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (JsonParseException e) {
-            e.printStackTrace();
-        } catch (JsonMappingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return consequence;
+        scene = new Scene(layout, 1000, 800);
+        stage.setScene(scene);
+        stage.show();
     }
 }

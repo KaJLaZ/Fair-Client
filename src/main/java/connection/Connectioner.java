@@ -1,6 +1,7 @@
-package minigames.judge.story;
+package connection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import serverCore.Litigation;
 
 import java.io.IOException;
 import java.net.URL;

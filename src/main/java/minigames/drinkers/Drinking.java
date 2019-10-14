@@ -1,11 +1,12 @@
 package minigames.drinkers;
 
+import connection.Connect;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 
 public class Drinking {
 
-    private static Connector connector=new Connector();
+    private static Connect connect =new Connect();
 
     Label npcDrunk;
     Label playerDrunk;
@@ -32,13 +33,13 @@ public class Drinking {
     }
 
     public void drink(){
-        connector.drink();
-        playerDrunk.setText("Your intoxication : "+connector.getPlayerIntoxication());
+        connect.drink();
+        playerDrunk.setText("Your intoxication : "+ connect.getPlayerIntoxication());
     }
 
     public void pass(){
-        connector.pass();
-        npcDrunk.setText("Opponent's intoxication : "+connector.getNpcIntoxication());
-        status.setText(connector.getWinner());
+        connect.pass();
+        npcDrunk.setText("Opponent's intoxication : "+ connect.getNpcIntoxication());
+        status.setText(connect.getWinner());
     }
 }

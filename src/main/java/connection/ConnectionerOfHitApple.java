@@ -1,4 +1,4 @@
-package minigames.judge.hitApple;
+package connection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

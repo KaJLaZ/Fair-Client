@@ -1,4 +1,4 @@
-package minigames.drawing;
+package connection;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -8,17 +8,27 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class DrawConnect {
-    private ObjectMapper mapper;
+public class Connector {
 
-    public DrawConnect() {
-        mapper = new ObjectMapper();
+    private static final String PATH = "http://localhost:8080/gameCommands/getConsequence";
+
+    ObjectMapper mapper = new ObjectMapper();
+    private String consequence;
+
+
+    public String getConsequence(){
+
+        
+         consequence = "Ви занадто п'яні щоб бачити передбачення";
+
+        return consequence;
     }
 
-    public Box getBox() {
+    public String getConsequenceFromServer() {
         try {
-            URL url = new URL("http://localhost:8080/gameCommands/getBox");
-            return mapper.readValue(url,Box.class);
+            URL url = new URL(PATH);
+            consequence = mapper.readValue(url, String.class);
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
@@ -28,6 +38,6 @@ public class DrawConnect {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return consequence;
     }
 }

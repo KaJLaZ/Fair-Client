@@ -1,5 +1,6 @@
-package minigames.loby;
+package core;
 
+import connection.LobyConnectioner;
 import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -7,16 +8,22 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import minigames.drinkers.MainDisplay;
+import minigames.appleTheft.AppleTheft;
+import minigames.drawing.Drawing;
+import minigames.drinkers.Drinkers;
 import minigames.judge.story.Judge;
+import minigames.prediction.Prediction;
+import serverCore.Game;
 
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Loby {
+public class Lobby {
 
-    private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(new MainDisplay(), new Judge()));
+    private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(
+            new AppleTheft(), new Judge(), new Drawing(), new Drinkers(), new Prediction()));
+
     private Stage stage;
     private Group group;
     private int numberOfGame;
@@ -25,7 +32,7 @@ public class Loby {
     private Button nextGame;
     private Game game;
 
-    public Loby(){
+    public Lobby(){
         init();
     }
 
@@ -65,7 +72,7 @@ public class Loby {
 
     private void control(){
         nextGame.setOnAction(event -> {
-            games.get(numberOfGame).display();
+            games.get(numberOfGame).play();
             stage.hide();
         });
     }

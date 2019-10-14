@@ -1,4 +1,4 @@
-package minigames.judge.story;
+package serverCore;
 
 import lombok.NonNull;
 

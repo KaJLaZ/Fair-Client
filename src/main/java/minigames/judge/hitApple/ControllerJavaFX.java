@@ -1,9 +1,10 @@
 package minigames.judge.hitApple;
 
 import javafx.stage.Stage;
-import minigames.judge.story.Transfer;
+import connection.Transfer;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
+import core.Lobby;
 
 public class ControllerJavaFX {
     private boolean result;
@@ -49,6 +50,7 @@ public class ControllerJavaFX {
         if(result) {
             new Transfer().sendResult(result);
             stage.hide();
+            new Lobby();
             return;
         }
         if (!result && counterOfShuts != 3) {
@@ -59,6 +61,7 @@ public class ControllerJavaFX {
         }
         new Transfer().sendResult(result);
         stage.hide();
+        new Lobby();
 
     }
 

@@ -1,4 +1,4 @@
-package minigames.drawing;
+package serverCore;
 
 import lombok.EqualsAndHashCode;
 import lombok.NonNull;
@@ -26,8 +26,15 @@ public class Symbol {
         this.appearance = appearance;
     }
 
-    public Symbol() {
+    public Symbol() { }
 
+    public static boolean isSymbolCorrect(Symbol symbol, Symbol[] correctSymbols){
+
+        for(Symbol i : correctSymbols){
+
+            if(i.equals(symbol))
+                return true;
+        }
+        return false;
     }
-
 }

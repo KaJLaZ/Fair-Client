@@ -1,6 +1,7 @@
-package minigames.loby;
+package connection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import serverCore.Game;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ public class LobyConnectioner {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
     public Game getGame() {
         return game;

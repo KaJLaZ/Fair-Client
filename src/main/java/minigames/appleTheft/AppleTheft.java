@@ -1,4 +1,4 @@
-package minigames.garden;
+package minigames.appleTheft;
 
 import core.Playable;
 import javafx.event.EventHandler;
@@ -8,16 +8,18 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
-public class MainWindow implements Playable {
+public class AppleTheft implements Playable {
 
     private static Group layout;
     private static Scene scene;
     private static Garden garden = new Garden();
     private static final int WINDOWWIDTH = 1125;
     private static final int WINDOWHEIGHT = 800;
+    public static Stage window = new Stage();
     @Override
-    public void display() {
-        Stage window = new Stage();
+    public void play() {
+
+
         layout = new Group();
         scene = new Scene(layout, WINDOWWIDTH, WINDOWHEIGHT);
         for (Rectangle[] R: garden.getGarden()){

@@ -1,7 +1,7 @@
-package minigames.garden;
+package minigames.appleTheft;
 
-import javafx.scene.image.Image;
-import javafx.scene.paint.ImagePattern;
+import connection.Connection;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
 
@@ -9,12 +9,12 @@ public class Garden {
     private static final int HEIGHT = 75;
     private static final int WIDTH = 75;
 
-    private static final String EMPTYPATH = "/Empty.png";
-    private static final String HEROPATH = "/Hero.png";
-    private static final String WALLPATH = "/Wall.png";
-    private static final String DOGPATH = "/Dog.png";
-    private static final String TREEPATH = "/Tree.png";
-    private static final String EXITPATH = "/Exit.png";
+    private static final String EMPTYPATH = "file:///Empty.png";
+    private static final String HEROPATH = "file:///Hero.png";
+    private static final String WALLPATH = "file:///Wall.png";
+    private static final String DOGPATH = "file:///Dog.png";
+    private static final String TREEPATH = "file:///Tree.png";
+    private static final String EXITPATH = "file:///Exit.png";
 
     private static final int EMPTY = 0;
     private static final int HERO = 1;
@@ -23,7 +23,8 @@ public class Garden {
     private static final int TREE = 4;
     private static final int EXIT = 5;
 
-    private static Connectioner connect = new Connectioner();
+    private static Connection connect = new Connection();
+
 
     @Getter
     private Rectangle[][] garden;
@@ -69,22 +70,22 @@ public class Garden {
                 }
                 switch (map[i][j]) {
                     case EMPTY:
-                        garden[i][j].setFill(new ImagePattern(new Image(EMPTYPATH)));
+                        garden[i][j].setFill(Paint.valueOf("#9ACD32"));
                         break;
                     case HERO:
-                        garden[i][j].setFill(new ImagePattern(new Image(HEROPATH)));
+                        garden[i][j].setFill(Paint.valueOf("#1E90FF"));
                         break;
                     case WALL:
-                        garden[i][j].setFill(new ImagePattern(new Image(WALLPATH)));
+                        garden[i][j].setFill(Paint.valueOf("#006400"));
                         break;
                     case DOG:
-                        garden[i][j].setFill(new ImagePattern(new Image(DOGPATH)));
+                        garden[i][j].setFill(Paint.valueOf("red"));
                         break;
                     case TREE:
-                        garden[i][j].setFill(new ImagePattern(new Image(TREEPATH)));
+                        garden[i][j].setFill(Paint.valueOf("gold"));
                         break;
                     case EXIT:
-                        garden[i][j].setFill(new ImagePattern(new Image(EXITPATH)));
+                        garden[i][j].setFill(Paint.valueOf("black"));
                         break;
                 }
             }
@@ -94,6 +95,7 @@ public class Garden {
 
     private void showInfoWhenGameEnded() {
         if(connect.isGameEnded()) {
+            AppleTheft.window.hide();
             if(connect.isWon()) {
                 InformationWindow.display("You Won!");
             }

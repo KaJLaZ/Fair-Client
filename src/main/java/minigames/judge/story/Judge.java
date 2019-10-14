@@ -1,5 +1,7 @@
 package minigames.judge.story;
 
+import connection.Connectioner;
+import connection.Transfer;
 import core.Playable;
 
 import minigames.judge.hitApple.LaunchHitApple;
@@ -9,6 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import core.Lobby;
+import serverCore.Litigation;
 
 public class Judge implements Playable {
     private Litigation litigation;
@@ -26,7 +30,7 @@ public class Judge implements Playable {
     private Button throwApple;
     private boolean choice;
 
-    public void display(){
+    public void play(){
         initLitigation();
         initComponents();
         initStage();
@@ -110,6 +114,7 @@ public class Judge implements Playable {
               choice = false;
               new Transfer().sendResult(choice);
               stage.hide();
+              new Lobby();
         });
         throwApple.setOnAction(event -> {
             stage.hide();

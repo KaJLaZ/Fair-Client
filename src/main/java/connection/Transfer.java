@@ -1,4 +1,4 @@
-package minigames.judge.story;
+package connection;
 
 import java.io.*;
 import java.net.*;

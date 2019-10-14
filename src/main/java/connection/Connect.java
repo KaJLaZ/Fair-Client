@@ -1,4 +1,4 @@
-package minigames.drinkers;
+package connection;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Connector {
+public class Connect {
 
     private static final String PATH = "http://localhost:8080/gameCommands";
     private static final String DRINK = PATH+"/drink";
