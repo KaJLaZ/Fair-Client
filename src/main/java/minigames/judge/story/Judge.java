@@ -2,7 +2,6 @@ package minigames.judge.story;
 
 import core.Playable;
 
-import minigames.judge.сontrol.Transfer;
 import minigames.judge.hitApple.LaunchHitApple;
 import javafx.scene.Group;
 import javafx.scene.Scene;

@@ -1,4 +1,4 @@
-package minigames.judge.сontrol;
+package minigames.judge.story;
 
 import java.io.*;
 import java.net.*;
@@ -9,12 +9,11 @@ public class Transfer {
 
     public void sendResult(boolean result) {
         StringBuffer content = new StringBuffer();
-        //Box box = new Box();
         try{
             URL url = new URL(ADDRESS);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
-            String urlParameters = "choice=true";
+            String urlParameters = "choice=false";
             con.setDoOutput(true);
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             out.writeBytes(urlParameters);
