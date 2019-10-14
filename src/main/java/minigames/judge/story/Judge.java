@@ -3,7 +3,7 @@ package minigames.judge.story;
 import core.Playable;
 
 import minigames.judge.сontrol.Transfer;
-import minigames.judge.hitApple.LaunchApple;
+import minigames.judge.hitApple.LaunchHitApple;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -58,7 +58,6 @@ public class Judge implements Playable {
 
         descNegChoice = new Text(litigation.getDescNegChoice());
         setFeaturesOfTexts(descNegChoice);
-
 
         nextButton = new Button("Ok");
         nextButton.setLayoutX(350);
@@ -115,7 +114,7 @@ public class Judge implements Playable {
         });
         throwApple.setOnAction(event -> {
             stage.hide();
-            new LaunchApple();
+            new LaunchHitApple();
         });
     }
 }
