@@ -14,7 +14,7 @@ public class Transfer {
             URL url = new URL(ADDRESS);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
-            String urlParameters = "choice=" + result;
+            String urlParameters = "choice=true";
             con.setDoOutput(true);
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             out.writeBytes(urlParameters);

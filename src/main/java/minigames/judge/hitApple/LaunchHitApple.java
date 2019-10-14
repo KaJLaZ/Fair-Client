@@ -3,11 +3,11 @@ package minigames.judge.hitApple;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LaunchApple {
+public class LaunchHitApple {
 
     private Stage stage;
     private Court court;
-    public LaunchApple(){
+    public LaunchHitApple(){
         init();
     }
     public void init(){

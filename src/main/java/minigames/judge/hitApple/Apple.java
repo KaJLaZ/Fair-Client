@@ -3,12 +3,13 @@ package minigames.judge.hitApple;
 import javafx.geometry.Point2D;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 
 public class Apple extends Pane {
 
-    private Rectangle apple;
+    private Circle apple;
     private Point2D layoutOfApple;
 
     private final static double WIND = 15;
@@ -18,12 +19,12 @@ public class Apple extends Pane {
     }
 
     private void layoutOfApple(Point2D layoutOfAim){
-        layoutOfApple = new Point2D(layoutOfAim.getX() + WIND, layoutOfAim.getY());
+        layoutOfApple = new Point2D(layoutOfAim.getX(), layoutOfAim.getY());
     }
     private void init(){
         setLayoutX(layoutOfApple.getX());
         setLayoutY(layoutOfApple.getY());
-        apple = new Rectangle(10,10, Color.RED);
+        apple = new Circle(10, Color.RED);
         getChildren().add(apple);
     }
 
