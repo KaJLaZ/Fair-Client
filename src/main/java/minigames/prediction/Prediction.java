@@ -21,16 +21,16 @@ public class Prediction implements Playable {
 
         Label label = new Label("Сон");
 
-        label.setLayoutX(480);
+        label.setLayoutX(250);
         label.setLayoutY(0);
         consequence = new Label();
-        consequence.setText(connector.getConsequenceFromServer());
+        consequence.setText(connector.getConsequence());
         consequence.setLayoutX(0);
         consequence.setLayoutY(15);
         layout.getChildren().addAll(label,consequence);
 
 
-        scene = new Scene(layout, 1000, 800);
+        scene = new Scene(layout, 500, 300);
         stage.setScene(scene);
         stage.show();
     }

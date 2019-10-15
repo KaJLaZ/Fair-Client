@@ -41,10 +41,6 @@ public class Connect {
         return stats;
     }
 
-    public boolean isEndGame() {
-        return endGame;
-    }
-
     public int[] drink(){
         stats=getStatsFromServer(DRINK);
         return stats;
@@ -64,10 +60,6 @@ public class Connect {
     public int getPlayerIntoxication(){
         playerIntoxication=stats[0];
         return playerIntoxication;
-    }
-
-    public boolean getIsAbleToSeePrediction(){
-        return getBoolFromServer(PREDICTIONER);
     }
 
     public String getWinner(){
