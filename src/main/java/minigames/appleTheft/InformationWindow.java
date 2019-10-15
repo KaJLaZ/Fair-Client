@@ -9,26 +9,30 @@ import core.Lobby;
 
 public class InformationWindow {
 
-    private static Group layout;
-    private static Scene scene;
     private static final int WINDOWWIDTH = 200;
     private static final int WINDOWHEIGHT = 100;
-    public static Stage window;
 
-    public static void display(String message) {
+    private Stage window;
+    private Group layout;
+    private Scene scene;
+    private Label info;
+    private Button button;
+
+    public InformationWindow(String message) {
         window = new Stage();
         layout = new Group();
         scene = new Scene(layout, WINDOWWIDTH, WINDOWHEIGHT);
+        info = new Label(message);
+        button = new Button("OK");
+    }
 
-        Label info = new Label(message);
+    public void display() {
         info.setLayoutX(50);
-        Button button = new Button("OK");
         button.setLayoutX(50);
         button.setLayoutY(50);
         button.setOnAction(e -> {
             window.hide();
             new Lobby();
-
         });
 
         layout.getChildren().addAll(info,button);
