@@ -28,7 +28,7 @@ public class Judge implements Playable {
     private Button forgive;
     private Button goAway;
     private Button throwApple;
-    private boolean choice;
+    private static final boolean isGuilty = false;
 
     public void play(){
         initLitigation();
@@ -104,15 +104,14 @@ public class Judge implements Playable {
         });
         forgive.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
-            group.getChildren().addAll(descPosChoice, goAway);
+            group.getChildren().addAll(descNegChoice, goAway);
         });
         guilty.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
-            group.getChildren().addAll(descNegChoice, throwApple);
+            group.getChildren().addAll(descPosChoice, throwApple);
         });
         goAway.setOnAction(event -> {
-              choice = false;
-              new Transfer().sendResult(choice);
+              new Transfer().sendResult(isGuilty);
               stage.hide();
               new Lobby();
         });

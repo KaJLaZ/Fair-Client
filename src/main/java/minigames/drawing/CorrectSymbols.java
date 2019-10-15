@@ -8,7 +8,7 @@ import lombok.Getter;
 
 public class CorrectSymbols {
 
-    private static final String [] PATHS = {"/Fragile.png","/Cold.png","/Warm.png","/Danger.png"};
+    private static final String [] PATHS = {"/CorrectSymbols/Fragile.png","/CorrectSymbols/Cold.png","/CorrectSymbols/Warm.png","/CorrectSymbols/Danger.png"};
     private static final int HEIGHT = 150;
     private static final int WIDTH = 150;
 
@@ -19,7 +19,7 @@ public class CorrectSymbols {
         correctSymbols = new Rectangle[4];
         for (int i = 0; i < correctSymbols.length; ++i) {
             correctSymbols[i] = new Rectangle();
-            correctSymbols[i].setFill(Paint.valueOf("gold"));
+            correctSymbols[i].setFill(new ImagePattern(new Image(PATHS[i])));
             correctSymbols[i].setLayoutY(i * HEIGHT);
             correctSymbols[i].setHeight(HEIGHT);
             correctSymbols[i].setWidth(WIDTH);

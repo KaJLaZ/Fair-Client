@@ -12,6 +12,7 @@ public class ControllerJavaFX {
     private Scene scene;
     private Court court;
     private Stage stage;
+
     public ControllerJavaFX(Scene scene, Court court, Stage stage){
         counterOfShuts = 0;
         this.scene = scene;
