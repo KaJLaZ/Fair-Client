@@ -1,6 +1,9 @@
 package minigames.appleTheft;
 
 import connection.Connection;
+import javafx.application.Platform;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
@@ -9,12 +12,12 @@ public class Garden {
     private static final int HEIGHT = 75;
     private static final int WIDTH = 75;
 
-    private static final String EMPTYPATH = "file:///Empty.png";
-    private static final String HEROPATH = "file:///Hero.png";
-    private static final String WALLPATH = "file:///Wall.png";
-    private static final String DOGPATH = "file:///Dog.png";
-    private static final String TREEPATH = "file:///Tree.png";
-    private static final String EXITPATH = "file:///Exit.png";
+    private static final String EMPTYPATH = "/Garden/Empty.png";
+    private static final String HEROPATH = "/Garden/Hero.png";
+    private static final String WALLPATH = "/Garden/Wall.png";
+    private static final String DOGPATH = "/Garden/Dog.png";
+    private static final String TREEPATH = "/Garden/Tree.png";
+    private static final String EXITPATH = "/Garden/Exit.png";
 
     private static final int EMPTY = 0;
     private static final int HERO = 1;
@@ -23,19 +26,16 @@ public class Garden {
     private static final int TREE = 4;
     private static final int EXIT = 5;
 
-    private static Connection connect = new Connection();
-
-
+    @Getter
+    private Connection connect;
     @Getter
     private Rectangle[][] garden;
     @Getter
     private int [][] map;
 
     public Garden() {
+        connect = new Connection();
         map = connect.getArray();
-        if (map == null) {
-            // TODO
-        }
         garden = new Rectangle[map.length][map[0].length];
         drawGarden();
     }
@@ -61,8 +61,6 @@ public class Garden {
     }
 
     private void drawGarden() {
-        if(map == null)
-            System.out.println("Found");
         for (int i = 0; i < garden.length; ++i) {
             for (int j = 0; j < garden[i].length; ++j) {
                 if(garden[i][j] == null) {
@@ -70,38 +68,26 @@ public class Garden {
                 }
                 switch (map[i][j]) {
                     case EMPTY:
-                        garden[i][j].setFill(Paint.valueOf("#9ACD32"));
+                        garden[i][j].setFill(new ImagePattern(new Image(EMPTYPATH)));
                         break;
                     case HERO:
-                        garden[i][j].setFill(Paint.valueOf("#1E90FF"));
+                        garden[i][j].setFill(new ImagePattern(new Image(HEROPATH)));
                         break;
                     case WALL:
-                        garden[i][j].setFill(Paint.valueOf("#006400"));
+                        garden[i][j].setFill(new ImagePattern(new Image(WALLPATH)));
                         break;
                     case DOG:
-                        garden[i][j].setFill(Paint.valueOf("red"));
+                        garden[i][j].setFill(new ImagePattern(new Image(DOGPATH)));
                         break;
                     case TREE:
-                        garden[i][j].setFill(Paint.valueOf("gold"));
+                        garden[i][j].setFill(new ImagePattern(new Image(TREEPATH)));
                         break;
                     case EXIT:
-                        garden[i][j].setFill(Paint.valueOf("black"));
+                        garden[i][j].setFill(new ImagePattern(new Image(EXITPATH)));
                         break;
                 }
             }
         }
-        showInfoWhenGameEnded();
     }
 
-    private void showInfoWhenGameEnded() {
-        if(connect.isGameEnded()) {
-            AppleTheft.window.hide();
-            if(connect.isWon()) {
-                InformationWindow.display("You Won!");
-            }
-            else {
-                InformationWindow.display("You lose(");
-            }
-        }
-    }
 }
