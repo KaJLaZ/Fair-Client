@@ -28,7 +28,7 @@ public class Drinkers implements Playable {
         layout = new Group();
         scene = new Scene(layout, 600, 600);
         layout.getChildren().add(hint);
-        layout.getChildren().addAll(drinking.playerDrunk,drinking.glass,drinking.leave,
+        layout.getChildren().addAll(drinking.glass,drinking.leave,
                 drinking.intoxicationBar,drinking.maxIntoxicationLevel,drinking.toDrink,drinking.toPass);
 
         scene.setOnMouseClicked(event -> {
@@ -50,7 +50,6 @@ public class Drinkers implements Playable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeight(300);
                 alert.setTitle("Результат гри");
-                alert.setHeaderText(drinking.npcDrunk.getText());
                 alert.setContentText(drinking.status.getText());
                 alert.showAndWait();
                 stage.hide();

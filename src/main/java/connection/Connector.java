@@ -10,8 +10,10 @@ import java.net.URL;
 
 public class Connector {
 
-    private static final String PATH = "http://localhost:8080/gameCommands/getConsequence";
+    private static final String PATH = "http://localhost:8080/gameCommands";
     private static final String PREDICTIONER = PATH+"/prediction";
+    private static final String CONSEQUENCE = PATH+"/getConsequence";
+
 
     ObjectMapper mapper = new ObjectMapper();
     private String consequence;
@@ -44,7 +46,7 @@ public class Connector {
 
     public String getConsequenceFromServer() {
         try {
-            URL url = new URL(PATH);
+            URL url = new URL(CONSEQUENCE);
             consequence = mapper.readValue(url, String.class);
 
         } catch (MalformedURLException e) {

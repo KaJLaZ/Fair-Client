@@ -3,6 +3,7 @@ package minigames.drinkers;
 import connection.Connect;
 import javafx.geometry.Point2D;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.awt.*;
@@ -17,7 +18,8 @@ public class Drinking {
     javafx.scene.shape.Rectangle glass;
     javafx.scene.shape.Rectangle leave;
     javafx.scene.shape.Rectangle intoxicationBar;
-    double barY=400;
+    private double lastIntoxication=0;
+    private double delta=0;
     Label maxIntoxicationLevel;
     Label toDrink;
     Label toPass;
@@ -35,11 +37,12 @@ public class Drinking {
         toPass.setLayoutX(250);
         toPass.setLayoutY(145);
 
-        intoxicationBar= new javafx.scene.shape.Rectangle(450,100,50,10);
+        intoxicationBar= new javafx.scene.shape.Rectangle(450,400,50,10);
         maxIntoxicationLevel = new Label("1000");
+        maxIntoxicationLevel.setTextFill(Color.RED);
         maxIntoxicationLevel.setFont(new Font("Times New Roman",20));
         maxIntoxicationLevel.setLayoutX(450);
-        maxIntoxicationLevel.setLayoutY(410);
+        maxIntoxicationLevel.setLayoutY(65);
 
         playerDrunk=new Label();
         playerDrunk.setLayoutX(10);
@@ -62,10 +65,9 @@ public class Drinking {
 
         connect.drink();
         intoxicationBar.setHeight(connect.getPlayerIntoxication()/3);
-        /*latIntoxicationLevel=intoxicationBar.getHeight();
-        intoxicationBar.setY(barY-latIntoxicationLevel);
-        barY=intoxicationBar.getY();*/
-
+        delta=intoxicationBar.getHeight()-lastIntoxication;
+        intoxicationBar.setY(intoxicationBar.getY()-delta);
+        lastIntoxication=intoxicationBar.getHeight();
         playerDrunk.setText("Ваш рівень сп'яніння : "+ connect.getPlayerIntoxication());
     }
 
