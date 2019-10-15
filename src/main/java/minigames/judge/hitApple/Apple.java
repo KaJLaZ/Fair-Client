@@ -12,7 +12,6 @@ public class Apple extends Pane {
     private Circle apple;
     private Point2D layoutOfApple;
 
-    private final static double WIND = 15;
     public Apple(Point2D layoutOfAim){
         layoutOfApple(layoutOfAim);
         init();
