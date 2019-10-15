@@ -1,5 +1,7 @@
 package connection;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
@@ -13,22 +15,11 @@ import java.net.URL;
 public class ConnectionerOfHitApple {
     private ObjectMapper mapper;
     private URL url;
-    private double x;
-    private double y;
+
+    private static final String ADDRESS = "http://localhost:8080/gameCommands/checkHit";
 
 
-    private boolean isCatch;
-
-    private final String ADDRESS = "http://localhost:8080/gameCommands/checkHit";
-
-
-    public ConnectionerOfHitApple(double x, double y){
-        this.x = x;
-        this.y = y;
-        sendCoordinateOfShut();
-    }
-
-    private void sendCoordinateOfShut(){
+    public void sendCoordinateOfShut(double x, double y){
         mapper = new ObjectMapper();
         StringBuffer content = new StringBuffer();
         try{
@@ -53,9 +44,21 @@ public class ConnectionerOfHitApple {
         System.out.println(content);
     }
 
-    public boolean isCatch() {
-        return isCatch;
+    public boolean isHaveApple(){
+        String address = "http://localhost:8080/gameCommands/hasApple";
+        try {
+            URL url = new URL(address);
+            return mapper.readValue(url,boolean.class);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
-
 
 }
