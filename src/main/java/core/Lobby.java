@@ -1,7 +1,6 @@
 package core;
 
 import connection.LobyConnectioner;
-import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
