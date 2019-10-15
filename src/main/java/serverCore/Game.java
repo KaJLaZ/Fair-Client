@@ -29,7 +29,7 @@ public class Game {
         return game;
     }
 
-    public static final int AMOUNT_BOX_FOR_ONE_GAME = 1;
+    public static final int AMOUNT_BOX_FOR_ONE_GAME = 3;
 
     public Game(@NonNull String description, @NonNull Games game) {
         this.description = description;
