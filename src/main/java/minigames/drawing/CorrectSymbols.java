@@ -22,7 +22,6 @@ public class CorrectSymbols {
             correctSymbols[i].setFill(new ImagePattern(new Image(PATHS[i])));
             correctSymbols[i].setLayoutY(i * HEIGHT);
             correctSymbols[i].setHeight(HEIGHT);
-
             correctSymbols[i].setWidth(WIDTH);
         }
     }
