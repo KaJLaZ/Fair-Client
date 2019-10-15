@@ -2,6 +2,8 @@ package minigames.appleTheft;
 
 import connection.Connection;
 import javafx.application.Platform;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
@@ -66,22 +68,22 @@ public class Garden {
                 }
                 switch (map[i][j]) {
                     case EMPTY:
-                        garden[i][j].setFill(Paint.valueOf("#9ACD32"));
+                        garden[i][j].setFill(new ImagePattern(new Image(EMPTYPATH)));
                         break;
                     case HERO:
-                        garden[i][j].setFill(Paint.valueOf("#1E90FF"));
+                        garden[i][j].setFill(new ImagePattern(new Image(HEROPATH)));
                         break;
                     case WALL:
-                        garden[i][j].setFill(Paint.valueOf("#006400"));
+                        garden[i][j].setFill(new ImagePattern(new Image(WALLPATH)));
                         break;
                     case DOG:
-                        garden[i][j].setFill(Paint.valueOf("red"));
+                        garden[i][j].setFill(new ImagePattern(new Image(DOGPATH)));
                         break;
                     case TREE:
-                        garden[i][j].setFill(Paint.valueOf("gold"));
+                        garden[i][j].setFill(new ImagePattern(new Image(TREEPATH)));
                         break;
                     case EXIT:
-                        garden[i][j].setFill(Paint.valueOf("black"));
+                        garden[i][j].setFill(new ImagePattern(new Image(EXITPATH)));
                         break;
                 }
             }
