@@ -17,8 +17,7 @@ public class AppleTheft implements Playable {
     private Group layout;
     private Scene scene;
     private Garden garden;
-    @Getter
-    private static Stage window = new Stage();
+    private Stage window = new Stage();
 
     public AppleTheft() {
         layout = new Group();
