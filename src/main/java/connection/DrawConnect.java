@@ -82,11 +82,14 @@ public class DrawConnect {
         }
     }
 
-    private String[] transformAppearance(boolean[][] appearance){
-        String[] newAppearance = new String[appearance.length];
+    private String[][] transformAppearance(boolean[][] appearance){
+        String[][] newAppearance = new String[Symbol.AMOUNT_ROWS][Symbol.AMOUNT_COLUMNS];
 
-        for(int i = 0; i < appearance.length; i++)
-            newAppearance[i] = Arrays.toString(appearance[i]);
+        for(int i = 0; i < Symbol.AMOUNT_ROWS; i++){
+            for(int j = 0; j < Symbol.AMOUNT_COLUMNS; j++){
+                newAppearance[i][j] = Arrays.toString(appearance[i]);
+            }
+        }
 
         return newAppearance;
     }

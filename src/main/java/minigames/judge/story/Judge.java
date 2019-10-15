@@ -1,6 +1,7 @@
 package minigames.judge.story;
 
 import connection.Connectioner;
+import connection.ConnectionerOfHitApple;
 import connection.Transfer;
 import core.Playable;
 
@@ -108,7 +109,12 @@ public class Judge implements Playable {
         });
         guilty.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
-            group.getChildren().addAll(descPosChoice, throwApple);
+            group.getChildren().add(descPosChoice);
+            if(new ConnectionerOfHitApple().isHaveApple())
+                group.getChildren().add(throwApple);
+            else
+                group.getChildren().add(goAway);
+
         });
         goAway.setOnAction(event -> {
               new Transfer().sendResult(isGuilty);

@@ -20,6 +20,7 @@ public class LobyConnectioner {
             mapper = new ObjectMapper();
             URL url = new URL(ADDRESS);
             game = mapper.readValue(url, Game.class);
+            System.out.println("d");
         } catch (IOException e) {
             e.printStackTrace();
         }

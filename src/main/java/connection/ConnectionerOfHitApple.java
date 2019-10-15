@@ -1,5 +1,7 @@
 package connection;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
@@ -11,37 +13,27 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ConnectionerOfHitApple {
-    double coordX;
-    double coordY;
     private ObjectMapper mapper;
     private URL url;
 
-
-    private boolean isCatch;
-
-    private final String ADDRESS = "http://localhost:8080/gameCommands/setSequence";
+    private static final String ADDRESS = "http://localhost:8080/gameCommands/checkHit";
 
 
-    public ConnectionerOfHitApple(double coordX, double coordY){
-        this.coordX = coordX;
-        this.coordY = coordY;
-    }
-
-    public void sendCoordinateOfShut(){
+    public void sendCoordinateOfShut(double x, double y){
+        mapper = new ObjectMapper();
         StringBuffer content = new StringBuffer();
         try{
             url = new URL(ADDRESS);
 
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
-            String urlParameters = "x=" + coordX + "&y=" + coordY;
+            String urlParameters ="x=" + x + "&y=" + y;
             con.setDoOutput(true);
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             out.writeBytes(urlParameters);
             out.flush();
             out.close();
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-            isCatch = getResultFromServer();
             in.close();
             con.disconnect();
         }catch (MalformedURLException e){
@@ -52,20 +44,21 @@ public class ConnectionerOfHitApple {
         System.out.println(content);
     }
 
-    public boolean getResultFromServer(){
+    public boolean isHaveApple(){
+        String address = "http://localhost:8080/gameCommands/hasApple";
         try {
-            mapper = new ObjectMapper();
-            Boolean result = mapper.readValue(url, Boolean.class);
-            return result.booleanValue();
+            URL url = new URL(address);
+            return mapper.readValue(url,boolean.class);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
-
-    public boolean isCatch() {
-        return isCatch;
-    }
-
 
 }
