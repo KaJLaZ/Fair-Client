@@ -13,11 +13,17 @@ public class Garden {
     private static final int WIDTH = 75;
 
     private static final String EMPTYPATH = "/Garden/Empty.png";
+    private static final ImagePattern EMPTYIMAGE = new ImagePattern(new Image(EMPTYPATH));
     private static final String HEROPATH = "/Garden/Hero.png";
+    private static final ImagePattern HEROIMAGE = new ImagePattern(new Image(HEROPATH));
     private static final String WALLPATH = "/Garden/Wall.png";
+    private static final ImagePattern WALLIMAGE = new ImagePattern(new Image(WALLPATH));
     private static final String DOGPATH = "/Garden/Dog.png";
+    private static final ImagePattern DOGIMAGE = new ImagePattern(new Image(DOGPATH));
     private static final String TREEPATH = "/Garden/Tree.png";
+    private static final ImagePattern TREEIMAGE = new ImagePattern(new Image(TREEPATH));
     private static final String EXITPATH = "/Garden/Exit.png";
+    private static final ImagePattern EXITIMAGE = new ImagePattern(new Image(EXITPATH));
 
     private static final int EMPTY = 0;
     private static final int HERO = 1;
@@ -68,22 +74,22 @@ public class Garden {
                 }
                 switch (map[i][j]) {
                     case EMPTY:
-                        garden[i][j].setFill(new ImagePattern(new Image(EMPTYPATH)));
+                        garden[i][j].setFill(EMPTYIMAGE);
                         break;
                     case HERO:
-                        garden[i][j].setFill(new ImagePattern(new Image(HEROPATH)));
+                        garden[i][j].setFill(HEROIMAGE);
                         break;
                     case WALL:
-                        garden[i][j].setFill(new ImagePattern(new Image(WALLPATH)));
+                        garden[i][j].setFill(WALLIMAGE);
                         break;
                     case DOG:
-                        garden[i][j].setFill(new ImagePattern(new Image(DOGPATH)));
+                        garden[i][j].setFill(DOGIMAGE);
                         break;
                     case TREE:
-                        garden[i][j].setFill(new ImagePattern(new Image(TREEPATH)));
+                        garden[i][j].setFill(TREEIMAGE);
                         break;
                     case EXIT:
-                        garden[i][j].setFill(new ImagePattern(new Image(EXITPATH)));
+                        garden[i][j].setFill(EXITIMAGE);
                         break;
                 }
             }
