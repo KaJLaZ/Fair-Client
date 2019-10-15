@@ -104,11 +104,11 @@ public class Judge implements Playable {
         });
         forgive.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
-            group.getChildren().addAll(descPosChoice, goAway);
+            group.getChildren().addAll(descNegChoice, goAway);
         });
         guilty.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
-            group.getChildren().addAll(descNegChoice, throwApple);
+            group.getChildren().addAll(descPosChoice, throwApple);
         });
         goAway.setOnAction(event -> {
               choice = false;
