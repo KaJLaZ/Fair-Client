@@ -1,6 +1,6 @@
 package core;
 
-import connection.LobyConnectioner;
+import connection.LobbyConnection;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -36,13 +36,13 @@ public class Lobby {
     }
 
     private void init() {
-        initGameRoot();
+        initGame();
         initTextAndButton();
         initGroup();
         initStage();
     }
-    private void initGameRoot(){
-        gameRoot = new LobyConnectioner().getGameRoot();
+    private void initGame(){
+        gameRoot = new LobbyConnection().getGameRoot();
         numberOfGame = gameRoot.getGame().getNumberOfGame();
         describe = gameRoot.getDescription();
     }

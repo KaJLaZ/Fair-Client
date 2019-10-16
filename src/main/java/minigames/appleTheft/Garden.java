@@ -1,10 +1,8 @@
 package minigames.appleTheft;
 
-import connection.Connection;
-import javafx.application.Platform;
+import connection.AppleTheftConnection;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import lombok.Getter;
 
@@ -33,14 +31,14 @@ public class Garden {
     private static final int EXIT = 5;
 
     @Getter
-    private Connection connect;
+    private AppleTheftConnection connect;
     @Getter
     private Rectangle[][] garden;
     @Getter
     private int [][] map;
 
     public Garden() {
-        connect = new Connection();
+        connect = new AppleTheftConnection();
         map = connect.getArray();
         garden = new Rectangle[map.length][map[0].length];
         drawGarden();

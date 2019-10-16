@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Connector {
+public class PredictionConnection {
 
     private static final String PATH = "http://localhost:8080/gameCommands";
     private static final String PREDICTIONER = PATH+"/prediction";

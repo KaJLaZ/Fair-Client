@@ -1,6 +1,6 @@
 package minigames.prediction;
 
-import connection.Connector;
+import connection.PredictionConnection;
 import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 public class Prediction implements Playable {
     private static Group layout;
     private static Scene scene;
-    Connector connector = new Connector();
+    PredictionConnection connector = new PredictionConnection();
     Label consequence;
 
 

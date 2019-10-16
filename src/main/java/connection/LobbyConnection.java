@@ -6,12 +6,12 @@ import serverCore.GameRoot;
 import java.io.IOException;
 import java.net.URL;
 
-public class LobyConnectioner {
+public class LobbyConnection {
     private static final String ADDRESS = "http://localhost:8080//gameCommands/getGame";
     private ObjectMapper mapper;
     private GameRoot gameRoot;
 
-    public LobyConnectioner(){
+    public LobbyConnection(){
         getGameFromServer();
     }
 

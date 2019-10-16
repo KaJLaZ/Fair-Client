@@ -1,16 +1,13 @@
 package minigames.drinkers;
 
-import connection.Connect;
-import javafx.geometry.Point2D;
+import connection.DrinkConnection;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.awt.*;
-
 public class Drinking {
 
-    private static Connect connect =new Connect();
+    private static DrinkConnection drinkConnection =new DrinkConnection();
 
     Label npcDrunk;
     Label playerDrunk;
@@ -63,17 +60,17 @@ public class Drinking {
 
     public void drink(){
 
-        connect.drink();
-        intoxicationBar.setHeight(connect.getPlayerIntoxication()/3);
+        drinkConnection.drink();
+        intoxicationBar.setHeight(drinkConnection.getPlayerIntoxication()/3);
         delta=intoxicationBar.getHeight()-lastIntoxication;
         intoxicationBar.setY(intoxicationBar.getY()-delta);
         lastIntoxication=intoxicationBar.getHeight();
-        playerDrunk.setText("Ваш рівень сп'яніння : "+ connect.getPlayerIntoxication());
+        playerDrunk.setText("Ваш рівень сп'яніння : "+ drinkConnection.getPlayerIntoxication());
     }
 
     public void pass(){
-        connect.pass();
-        npcDrunk.setText("Рівень сп'яніння оппонента : "+ connect.getNpcIntoxication());
-        status.setText(connect.getWinner());
+        drinkConnection.pass();
+        npcDrunk.setText("Рівень сп'яніння оппонента : "+ drinkConnection.getNpcIntoxication());
+        status.setText(drinkConnection.getWinner());
     }
 }
