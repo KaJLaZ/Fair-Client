@@ -1,18 +1,15 @@
 package minigames.drinkers;
 
-import connection.Connect;
-import javafx.geometry.Point2D;
+import connection.DrinkConnection;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 
-import java.awt.*;
-
 public class Drinking {
 
-    private static Connect connect =new Connect();
+    private static DrinkConnection connect =new DrinkConnection();
     private static final Image imgGlass = new Image("/Drinking/Glass.jpg");
     private static final Image imgDoor = new Image("/Drinking/Door.png");
     Label npcDrunk;
