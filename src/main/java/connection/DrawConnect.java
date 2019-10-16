@@ -74,7 +74,6 @@ public class DrawConnect {
             }
             in.close();
             con.disconnect();
-            con.disconnect();
         }catch (MalformedURLException e){
             System.out.println("Malformed exception");
         } catch (IOException e) {

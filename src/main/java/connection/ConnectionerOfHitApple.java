@@ -46,6 +46,7 @@ public class ConnectionerOfHitApple {
 
     public boolean isHaveApple(){
         String address = "http://localhost:8080/gameCommands/hasApple";
+        mapper = new ObjectMapper();
         try {
             URL url = new URL(address);
             return mapper.readValue(url,boolean.class);

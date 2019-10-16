@@ -1,7 +1,7 @@
 package connection;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import serverCore.Game;
+import serverCore.GameRoot;
 
 import java.io.IOException;
 import java.net.URL;
@@ -9,7 +9,7 @@ import java.net.URL;
 public class LobyConnectioner {
     private static final String ADDRESS = "http://localhost:8080//gameCommands/getGame";
     private ObjectMapper mapper;
-    private Game game;
+    private GameRoot gameRoot;
 
     public LobyConnectioner(){
         getGameFromServer();
@@ -19,15 +19,15 @@ public class LobyConnectioner {
         try {
             mapper = new ObjectMapper();
             URL url = new URL(ADDRESS);
-            game = mapper.readValue(url, Game.class);
+            gameRoot = mapper.readValue(url, GameRoot.class);
             System.out.println("d");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
-    public Game getGame() {
-        return game;
+    public GameRoot getGameRoot() {
+        return gameRoot;
     }
 
 }

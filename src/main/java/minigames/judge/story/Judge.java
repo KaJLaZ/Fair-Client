@@ -31,25 +31,24 @@ public class Judge implements Playable {
     private Button throwApple;
     private static final boolean isGuilty = false;
 
-    public void play(){
+    public void play() {
         initLitigation();
         initComponents();
         initStage();
         control();
     }
 
-
-    private void initLitigation(){
+    private void initLitigation() {
         litigation = new Connectioner().getLitigation();
     }
 
-
-    private void initComponents(){
+    private void initComponents() {
         initTextAndButtons();
         group = new Group(personDescription, nextButton);
         scene = new Scene(group);
     }
-    private void initTextAndButtons(){
+
+    private void initTextAndButtons() {
 
         personDescription = new Text(litigation.getPersonDescription());
         setFeaturesOfTexts(personDescription);
@@ -84,13 +83,14 @@ public class Judge implements Playable {
         throwApple.setLayoutY(300);
 
     }
-    private void setFeaturesOfTexts(Text text){
+
+    private void setFeaturesOfTexts(Text text) {
         text.setLayoutX(8);
         text.setLayoutY(20);
         text.setFont(Font.font("Verdana", 14));
     }
 
-    private void initStage(){
+    private void initStage() {
         stage = new Stage();
         stage.setHeight(500);
         stage.setWidth(800);
@@ -98,7 +98,7 @@ public class Judge implements Playable {
         stage.show();
     }
 
-    private void control(){
+    private void control() {
         nextButton.setOnAction(event -> {
             group.getChildren().removeAll(personDescription, nextButton);
             group.getChildren().addAll(faultDesc, forgive, guilty);
@@ -110,16 +110,16 @@ public class Judge implements Playable {
         guilty.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
             group.getChildren().add(descPosChoice);
-            if(new ConnectionerOfHitApple().isHaveApple())
+            if (new ConnectionerOfHitApple().isHaveApple())
                 group.getChildren().add(throwApple);
             else
                 group.getChildren().add(goAway);
 
         });
         goAway.setOnAction(event -> {
-              new Transfer().sendResult(isGuilty);
-              stage.hide();
-              new Lobby();
+            new Transfer().sendResult();
+            stage.hide();
+            new Lobby();
         });
         throwApple.setOnAction(event -> {
             stage.hide();

@@ -4,7 +4,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -20,10 +24,11 @@ public class Connector {
 
 
     public String getConsequence(){
+        System.out.println(getBoolFromServer(PREDICTIONER));
         if (getBoolFromServer(PREDICTIONER)) {
-            consequence = "Ви занадто п'яні щоб бачити передбачення";
+            consequence = getConsequenceFromServer();
         }else{
-            //взяти наслідок з сервера
+            consequence = "Ви занадто п'яні щоб бачити передбачення";
         }
         return consequence;
     }
@@ -45,9 +50,21 @@ public class Connector {
     }
 
     public String getConsequenceFromServer() {
-        try {
+        StringBuffer content;
+        try{
             URL url = new URL(CONSEQUENCE);
-            consequence = mapper.readValue(url, String.class);
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("GET");
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            content = new StringBuffer();
+            while ((inputLine = in.readLine()) != null){
+                content.append(inputLine);
+            }
+
+            in.close();
+            con.disconnect();
+            return content.toString();
 
         } catch (MalformedURLException e) {
             e.printStackTrace();

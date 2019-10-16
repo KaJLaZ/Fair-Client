@@ -12,7 +12,7 @@ import minigames.drawing.Drawing;
 import minigames.drinkers.Drinkers;
 import minigames.judge.story.Judge;
 import minigames.prediction.Prediction;
-import serverCore.Game;
+import serverCore.GameRoot;
 
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class Lobby {
     private String describe;
     private Text text;
     private Button nextGame;
-    private Game game;
+    private GameRoot gameRoot;
 
     public Lobby(){
         init();
@@ -42,9 +42,9 @@ public class Lobby {
         initStage();
     }
     private void initGame(){
-        game = new LobyConnectioner().getGame();
-        numberOfGame = game.getGame().getNumberOfGame();
-        describe = game.getDescription();
+        gameRoot = new LobyConnectioner().getGameRoot();
+        numberOfGame = gameRoot.getGame().getNumberOfGame();
+        describe = gameRoot.getDescription();
     }
     private void initTextAndButton(){
 
@@ -71,7 +71,8 @@ public class Lobby {
 
     private void control(){
         nextGame.setOnAction(event -> {
-            games.get(numberOfGame).play();
+            if(numberOfGame !=5)
+                games.get(numberOfGame).play();
             stage.hide();
         });
     }

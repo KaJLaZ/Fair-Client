@@ -8,7 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import core.Lobby;
-import serverCore.Game;
+import serverCore.GameRoot;
 import serverCore.Symbol;
 
 import java.net.ConnectException;
@@ -25,7 +25,7 @@ public class Drawing implements Playable {
 
     private static final int WINDOW_WIDTH = 1125;
     private static final int WINDOW_HEIGHT = 800;
-    private static int turns = Game.AMOUNT_BOX_FOR_ONE_GAME;
+    private static int turns = GameRoot.AMOUNT_BOX_FOR_ONE_GAME;
 
     public Drawing(){
         layout = new Group();
