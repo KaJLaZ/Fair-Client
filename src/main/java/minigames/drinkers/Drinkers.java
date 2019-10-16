@@ -51,6 +51,7 @@ public class Drinkers implements Playable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeight(300);
                 alert.setTitle("Результат гри");
+                alert.setHeaderText("Результат");
                 alert.setContentText(drinking.getStatus().getText());
                 alert.showAndWait();
                 stage.hide();

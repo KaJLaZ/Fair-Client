@@ -45,8 +45,8 @@ public class Drinking {
         toPass.setLayoutY(370);
         toPass.setFont(new Font(20));
 
-        intoxicationBar= new javafx.scene.shape.Rectangle(450,400,50,10);
-        maxIntoxicationLevel = new Label("1000");
+        intoxicationBar= new javafx.scene.shape.Rectangle(450,400,60,0);
+        maxIntoxicationLevel = new Label("П'яний");
         maxIntoxicationLevel.setTextFill(Color.BLACK);
         maxIntoxicationLevel.setFont(new Font("Times New Roman",20));
         maxIntoxicationLevel.setLayoutX(450);
@@ -83,7 +83,7 @@ public class Drinking {
     public void paintColorBar(){
         if (intoxicationBar.getHeight()<500/4){
             intoxicationBar.setFill(Color.GREEN);
-        }else if(intoxicationBar.getHeight()<1000/4){
+        }else if(intoxicationBar.getHeight()<1000/4.5){
             intoxicationBar.setFill(Color.YELLOW);
         }else {
             intoxicationBar.setFill(Color.RED);

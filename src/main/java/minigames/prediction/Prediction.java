@@ -1,9 +1,11 @@
 package minigames.prediction;
 
 import connection.PredictionConnection;
+import core.Lobby;
 import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -11,8 +13,9 @@ import javafx.stage.Stage;
 public class Prediction implements Playable {
     private static Group layout;
     private static Scene scene;
-    PredictionConnection connector = new PredictionConnection();
-    Text consequence;
+    private PredictionConnection connector = new PredictionConnection();
+    private Text consequence;
+    private Button button=new Button("OK");
 
 
     @Override
@@ -29,7 +32,13 @@ public class Prediction implements Playable {
         consequence.setY(35);
         consequence.setWrappingWidth(500);
         layout.getChildren().addAll(label,consequence);
-
+        layout.getChildren().add(button);
+        button.setLayoutX(240);
+        button.setLayoutY(250);
+        button.setOnAction(event -> {
+            stage.hide();
+            new Lobby();
+        });
 
         scene = new Scene(layout, 500, 300);
         stage.setScene(scene);
