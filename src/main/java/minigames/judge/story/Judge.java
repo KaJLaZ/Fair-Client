@@ -69,7 +69,7 @@ public class Judge implements Playable {
         forgive.setLayoutY(300);
 
         guilty = new Button("Винний");
-        guilty.setLayoutX(380);
+        guilty.setLayoutX(390);
         guilty.setLayoutY(300);
 
         goAway = new Button("Піти");
