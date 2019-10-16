@@ -32,8 +32,6 @@ public class ControllerJavaFX {
 
     private void shut() {
         court.aim.setGoVertical(false);
-        court.getChildren().add(new Apple(new Point2D(court.aim.getLayoutX(), court.aim.getLayoutY())));
-        System.out.println(court.aim.getLayoutX());
         new ConnectionerOfHitApple().sendCoordinateOfShut(court.aim.getLayoutX(), court.aim.getLayoutY());
         stage.hide();
         new Lobby();

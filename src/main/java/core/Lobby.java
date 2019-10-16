@@ -36,12 +36,12 @@ public class Lobby {
     }
 
     private void init() {
-        initGame();
+        initGameRoot();
         initTextAndButton();
         initGroup();
         initStage();
     }
-    private void initGame(){
+    private void initGameRoot(){
         gameRoot = new LobyConnectioner().getGameRoot();
         numberOfGame = gameRoot.getGame().getNumberOfGame();
         describe = gameRoot.getDescription();
