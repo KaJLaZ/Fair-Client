@@ -5,6 +5,7 @@ import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import core.Lobby;
@@ -35,6 +36,9 @@ public class Drawing implements Playable {
         correctSymbols = new CorrectSymbols();
         for(Rectangle r: correctSymbols.getCorrectSymbols()) {
             layout.getChildren().add(r);
+        }
+        for (Label l: correctSymbols.getCorrectNames()) {
+            layout.getChildren().add(l);
         }
         String nameGoods = new String();
         try {
