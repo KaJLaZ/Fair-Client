@@ -17,9 +17,10 @@ public class AppleTheft implements Playable {
     private Group layout;
     private Scene scene;
     private Garden garden;
-    private Stage window = new Stage();
+    private Stage window;
 
     public AppleTheft() {
+        window = new Stage();
         layout = new Group();
         scene = new Scene(layout, WINDOWWIDTH, WINDOWHEIGHT);
         garden = new Garden();
