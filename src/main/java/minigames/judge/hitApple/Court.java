@@ -6,7 +6,7 @@ import javafx.scene.shape.Rectangle;
 
 
 public class Court extends Group {
-    private Aim aim;
+    protected Aim aim;
     private Rectangle r;
     private Target prisoner;
     public Court(){
