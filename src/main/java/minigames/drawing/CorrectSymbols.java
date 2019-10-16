@@ -26,7 +26,6 @@ public class CorrectSymbols {
         for (int i = 0; i < correctSymbols.length; ++i) {
             correctNames[i] = new Label(NAMES[i]);
             correctNames[i].setLayoutY(i * HEIGHT);
-            System.out.println(correctNames[i].getHeight());
 
             correctSymbols[i] = new Rectangle();
             correctSymbols[i].setFill(new ImagePattern(new Image(PATHS[i])));
