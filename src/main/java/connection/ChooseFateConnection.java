@@ -10,12 +10,10 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class ConnectionChooseFate {
+public class ChooseFateConnection {
 
     private static final String ADDRESS_GET_LITIGATION = "http://localhost:8080/gameCommands/getLigation";
     private final String ADDRESS_SEND_RESULT = "http://localhost:8080/gameCommands/forgivePrisoner";
-
-
 
     private ObjectMapper mapper;
 

@@ -1,7 +1,7 @@
 package minigames.judge.story;
 
-import connection.ConnectionChooseFate;
-import connection.ConnectionerOfHitApple;
+import connection.ChooseFateConnection;
+import connection.HitAppleConnection;
 import core.Playable;
 
 import minigames.judge.hitApple.LaunchHitApple;
@@ -38,7 +38,7 @@ public class Judge implements Playable {
     }
 
     private void initLitigation() {
-        litigation = new ConnectionChooseFate().getLitigationFromServer();
+        litigation = new ChooseFateConnection().getLitigationFromServer();
     }
 
     private void initComponents() {
@@ -109,14 +109,14 @@ public class Judge implements Playable {
         guilty.setOnAction(event -> {
             group.getChildren().removeAll(faultDesc, forgive, guilty);
             group.getChildren().add(descPosChoice);
-            if (new ConnectionerOfHitApple().isHaveApple())
+            if (new HitAppleConnection().isHaveApple())
                 group.getChildren().add(throwApple);
             else
                 group.getChildren().add(goAway);
 
         });
         goAway.setOnAction(event -> {
-            new ConnectionChooseFate().forgivePrisoner();
+            new ChooseFateConnection().forgivePrisoner();
             stage.hide();
             new Lobby();
         });
