@@ -17,10 +17,10 @@ public class Aim extends Pane implements Runnable {
     private boolean goVertical;
 
     public Aim(){
-        download();
+        init();
     }
 
-    private void download(){
+    private void init(){
         Rectangle rectangle = new Rectangle(25, 25);
         rectangle.setFill(new ImagePattern(new Image("/HitApple/Aim.png")));
         getChildren().add(rectangle);

@@ -10,7 +10,7 @@ public class LaunchHitApple {
     public LaunchHitApple(){
         init();
     }
-    public void init(){
+    private void init(){
         stage = new Stage();
         court = new Court();
         Scene scene = new Scene(court);

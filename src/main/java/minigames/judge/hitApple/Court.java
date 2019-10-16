@@ -6,14 +6,14 @@ import javafx.scene.shape.Rectangle;
 
 
 public class Court extends Group {
-    Aim aim;
-    Rectangle r;
-    Target prisoner;
+    private Aim aim;
+    private Rectangle r;
+    private Target prisoner;
     public Court(){
         init();
     }
 
-    public void init(){
+    private void init(){
         r = new Rectangle(1200,700, Color.GREEN);
         aim = new Aim();
         prisoner = new Target();

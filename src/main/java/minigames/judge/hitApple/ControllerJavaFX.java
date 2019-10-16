@@ -3,7 +3,6 @@ package minigames.judge.hitApple;
 
 import connection.HitAppleConnection;
 import javafx.stage.Stage;
-import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import core.Lobby;
 
@@ -12,7 +11,7 @@ public class ControllerJavaFX {
     private Court court;
     private Stage stage;
 
-    public ControllerJavaFX(Scene scene, Court court, Stage stage){
+    protected ControllerJavaFX(Scene scene, Court court, Stage stage){
         this.scene = scene;
         this.court = court;
         this.stage = stage;
