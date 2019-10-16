@@ -5,13 +5,14 @@ import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Prediction implements Playable {
     private static Group layout;
     private static Scene scene;
     Connector connector = new Connector();
-    Label consequence;
+    Text consequence;
 
 
     @Override
@@ -23,10 +24,10 @@ public class Prediction implements Playable {
 
         label.setLayoutX(250);
         label.setLayoutY(0);
-        consequence = new Label();
+        consequence = new Text();
         consequence.setText(connector.getConsequence());
-        consequence.setLayoutX(0);
-        consequence.setLayoutY(15);
+        consequence.setY(35);
+        consequence.setWrappingWidth(500);
         layout.getChildren().addAll(label,consequence);
 
 
