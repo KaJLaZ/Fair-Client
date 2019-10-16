@@ -24,7 +24,6 @@ public class PredictionConnection {
 
 
     public String getConsequence(){
-        System.out.println(getBoolFromServer(PREDICTIONER));
         if (getBoolFromServer(PREDICTIONER)) {
             consequence = getConsequenceFromServer();
         }else{

@@ -6,23 +6,25 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
+import lombok.Getter;
 
+@Getter
 public class Drinking {
 
     private static DrinkConnection connect =new DrinkConnection();
     private static final Image imgGlass = new Image("/Drinking/Glass.jpg");
     private static final Image imgDoor = new Image("/Drinking/Door.png");
-    Label npcDrunk;
-    Label playerDrunk;
-    Label status;
-    javafx.scene.shape.Rectangle glass;
-    javafx.scene.shape.Rectangle leave;
-    javafx.scene.shape.Rectangle intoxicationBar;
+    private Label npcDrunk;
+    private Label playerDrunk;
+    private Label status;
+    private javafx.scene.shape.Rectangle glass;
+    private javafx.scene.shape.Rectangle leave;
+    private javafx.scene.shape.Rectangle intoxicationBar;
     private double lastIntoxication=0;
     private double delta=0;
-    Label maxIntoxicationLevel;
-    Label toDrink;
-    Label toPass;
+    private Label maxIntoxicationLevel;
+    private Label toDrink;
+    private Label toPass;
 
 
     public Drinking() {
@@ -31,7 +33,6 @@ public class Drinking {
         glass.setFill(new ImagePattern(imgGlass));
         leave= new javafx.scene.shape.Rectangle(250,70,150,300);
         leave.setFill(new ImagePattern(imgDoor));
-
 
         toDrink=new Label("Випити");
         toPass=new Label("Спасувати");

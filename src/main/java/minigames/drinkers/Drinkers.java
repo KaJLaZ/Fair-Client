@@ -28,8 +28,9 @@ public class Drinkers implements Playable {
         layout = new Group();
         scene = new Scene(layout, 600, 600);
         layout.getChildren().add(hint);
-        layout.getChildren().addAll(drinking.glass,drinking.leave,
-                drinking.intoxicationBar,drinking.maxIntoxicationLevel,drinking.toDrink,drinking.toPass);
+        layout.getChildren().addAll(drinking.getGlass(),drinking.getLeave(),
+                drinking.getIntoxicationBar(),drinking.getMaxIntoxicationLevel(),
+                drinking.getToDrink(),drinking.getToPass());
 
         scene.setOnMouseClicked(event -> {
                 LeftMouseClick(event.getX(),event.getY());
@@ -42,15 +43,15 @@ public class Drinkers implements Playable {
 
     public void LeftMouseClick(double x,double y){
         Point2D pointer =new Point2D(x,y);
-        if(drinking.glass.contains(pointer)){
+        if(drinking.getGlass().contains(pointer)){
             drinking.drink();
         }else{
-            if (drinking.leave.contains(pointer)){
+            if (drinking.getLeave().contains(pointer)){
                 drinking.pass();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeight(300);
                 alert.setTitle("Результат гри");
-                alert.setContentText(drinking.status.getText());
+                alert.setContentText(drinking.getStatus().getText());
                 alert.showAndWait();
                 stage.hide();
                 new Lobby();
