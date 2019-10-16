@@ -20,9 +20,7 @@ import java.util.Arrays;
 
 public class Lobby {
 
-    private static final ArrayList<Playable> games = new ArrayList<>(Arrays.asList(
-            new AppleTheft(), new Judge(), new Drawing(), new Drinkers(), new Prediction()));
-
+    private ArrayList<Playable> games;
     private Stage stage;
     private Group group;
     private int numberOfGame;
@@ -36,11 +34,18 @@ public class Lobby {
     }
 
     private void init() {
+        initArrayGames();
         initGame();
         initTextAndButton();
         initGroup();
         initStage();
     }
+
+    private void initArrayGames(){
+        games = new ArrayList<>(Arrays.asList(
+                new AppleTheft(), new Judge(), new Drawing(), new Drinkers(), new Prediction()));
+    }
+
     private void initGame(){
         gameRoot = new LobbyConnection().getGameRoot();
         numberOfGame = gameRoot.getGame().getNumberOfGame();
