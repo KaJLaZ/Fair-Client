@@ -28,7 +28,6 @@ public class Judge implements Playable {
     private Button forgive;
     private Button goAway;
     private Button throwApple;
-    private static final boolean isGuilty = false;
 
     public void play() {
         initLitigation();
@@ -65,19 +64,19 @@ public class Judge implements Playable {
         nextButton.setLayoutX(350);
         nextButton.setLayoutY(300);
 
-        forgive = new Button("Forgive");
+        forgive = new Button("Пробачити");
         forgive.setLayoutX(320);
         forgive.setLayoutY(300);
 
-        guilty = new Button("Guilty");
+        guilty = new Button("Винний");
         guilty.setLayoutX(380);
         guilty.setLayoutY(300);
 
-        goAway = new Button("goAway");
+        goAway = new Button("Піти");
         goAway.setLayoutX(350);
         goAway.setLayoutY(300);
 
-        throwApple = new Button("throwApple");
+        throwApple = new Button("Кинути яблуко");
         throwApple.setLayoutX(350);
         throwApple.setLayoutY(300);
 
