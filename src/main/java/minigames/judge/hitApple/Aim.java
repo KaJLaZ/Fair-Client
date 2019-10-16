@@ -1,6 +1,8 @@
 package minigames.judge.hitApple;
 
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
 
@@ -18,15 +20,16 @@ public class Aim extends Pane implements Runnable {
         download();
     }
 
-    public void download(){
-        Rectangle rectangle = new Rectangle(20, 20);
+    private void download(){
+        Rectangle rectangle = new Rectangle(25, 25);
+        rectangle.setFill(new ImagePattern(new Image("/HitApple/Aim.png")));
         getChildren().add(rectangle);
         setLayoutX(BASE_LAYOUTx);
         setLayoutY(BASE_LAYOUTy);
         goHorizontal = true;
     }
 
-    public void goHorizontal() throws InterruptedException {
+    private void goHorizontal() throws InterruptedException {
         while(goHorizontal){
             while (getLayoutX() <= MAX_LAYOUTx && goHorizontal){
                 setLayoutX(getLayoutX() + SPEED);
@@ -39,11 +42,9 @@ public class Aim extends Pane implements Runnable {
         }
     }
 
-    public boolean isGoHorizontal() {
-        return goHorizontal;
-    }
 
-    public void goVertical() throws InterruptedException{
+
+    private void goVertical() throws InterruptedException{
         while(goVertical){
             while (getLayoutY() >= MAX_LAYOUTy && goVertical){
                 setLayoutY(getLayoutY() - SPEED);
@@ -68,6 +69,11 @@ public class Aim extends Pane implements Runnable {
                 e.printStackTrace();
             }
     }
+
+    public boolean isGoHorizontal() {
+        return goHorizontal;
+    }
+
     public void setGoHorizontal(boolean goHorizontal) {
         this.goHorizontal = goHorizontal;
     }

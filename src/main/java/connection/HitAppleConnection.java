@@ -12,7 +12,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class ConnectionerOfHitApple {
+public class HitAppleConnection {
     private ObjectMapper mapper;
     private URL url;
 

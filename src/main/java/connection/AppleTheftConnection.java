@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class Connection {
+public class AppleTheftConnection {
     private static final String PATH = "http://localhost:8080/gameCommands/";
     private static final String ARRAY = PATH + "array";
     private static final String UP = PATH + "up";

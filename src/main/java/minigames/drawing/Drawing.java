@@ -1,6 +1,6 @@
 package minigames.drawing;
 
-import connection.DrawConnect;
+import connection.DrawRunsConnection;
 import core.Playable;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -18,7 +18,7 @@ public class Drawing implements Playable {
     private Group layout;
     private Stage window;
     private Scene scene;
-    private DrawConnect connect;
+    private DrawRunsConnection connect;
     private CorrectSymbols correctSymbols;
     private DrawField drawField;
     private Button confirm;
@@ -31,7 +31,7 @@ public class Drawing implements Playable {
         layout = new Group();
         window = new Stage();
         scene = new Scene(layout, WINDOW_WIDTH, WINDOW_HEIGHT);
-        connect = new DrawConnect();
+        connect = new DrawRunsConnection();
         correctSymbols = new CorrectSymbols();
         for(Rectangle r: correctSymbols.getCorrectSymbols()) {
             layout.getChildren().add(r);
@@ -59,7 +59,7 @@ public class Drawing implements Playable {
         confirm.setOnAction(e -> {
             window.hide();
             connect.sendSymbol(new Symbol(drawField.getBox()));
-            if (turns > 0)
+            if (turns > 1)
                 getAnotherBox();
             else new Lobby();
         });

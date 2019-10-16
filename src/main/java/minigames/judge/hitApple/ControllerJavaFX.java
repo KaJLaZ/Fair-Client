@@ -1,6 +1,7 @@
 package minigames.judge.hitApple;
 
-import connection.ConnectionerOfHitApple;
+
+import connection.HitAppleConnection;
 import javafx.stage.Stage;
 import javafx.geometry.Point2D;
 import javafx.scene.Scene;
@@ -32,7 +33,7 @@ public class ControllerJavaFX {
 
     private void shut() {
         court.aim.setGoVertical(false);
-        new ConnectionerOfHitApple().sendCoordinateOfShut(court.aim.getLayoutX(), court.aim.getLayoutY());
+        new HitAppleConnection().sendCoordinateOfShut(court.aim.getLayoutX(), court.aim.getLayoutY());
         stage.hide();
         new Lobby();
     }
