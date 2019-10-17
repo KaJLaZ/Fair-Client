@@ -64,6 +64,9 @@ public class AppleTheft implements Playable {
                 case RIGHT:
                     garden.moveRight();
                     break;
+                case Q:
+                    garden.newGarden();
+                    break;
             }
             showInfoWhenGameEnded();
         }

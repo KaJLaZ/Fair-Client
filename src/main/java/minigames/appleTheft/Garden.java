@@ -64,6 +64,11 @@ public class Garden {
         drawGarden();
     }
 
+    public void newGarden() {
+        map = connect.getArray();
+        drawGarden();
+    }
+
     private void drawGarden() {
         for (int i = 0; i < garden.length; ++i) {
             for (int j = 0; j < garden[i].length; ++j) {
