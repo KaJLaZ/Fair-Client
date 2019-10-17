@@ -16,7 +16,6 @@ public class PredictionConnection {
     private static final String PATH = "http://localhost:8080/gameCommands";
     private static final String PREDICTIONER = PATH + "/prediction";
     private static final String CONSEQUENCE = PATH + "/getConsequence";
-    private static final String IS_DRUNK = PATH + "/isDrunk";
 
 
     ObjectMapper mapper = new ObjectMapper();
@@ -24,7 +23,7 @@ public class PredictionConnection {
 
 
     public String getConsequence() {
-        if (getBoolFromServer(PREDICTIONER) == !getBoolFromServer(IS_DRUNK)) {
+        if (getBoolFromServer(PREDICTIONER)) {
             consequence = getConsequenceFromServer();
         } else {
             consequence = "Ви занадто п'яні щоб бачити передбачення";

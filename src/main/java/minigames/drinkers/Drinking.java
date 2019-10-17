@@ -63,7 +63,7 @@ public class Drinking {
         npcDrunk.setFont(new Font("Times New Roman", 30));
 
         status = new Label();
-        status.setLayoutX(401);
+        status.setLayoutX(400);
         status.setLayoutY(400);
         status.setFont(new Font("Times New Roman", 30));
     }
@@ -92,8 +92,7 @@ public class Drinking {
 
     public void pass() {
         connect.pass();
-
-        npcDrunk.setText("Рівень сп'яніння оппонента : " + connect.getNpcIntoxication());
         status.setText(connect.getWinner());
+        npcDrunk.setText("Рівень сп'яніння оппонента : " + connect.getNpcIntoxication());
     }
 }
