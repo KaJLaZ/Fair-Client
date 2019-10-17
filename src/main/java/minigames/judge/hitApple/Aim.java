@@ -16,11 +16,11 @@ public class Aim extends Pane implements Runnable {
     private boolean goHorizontal;
     private boolean goVertical;
 
-    public Aim() {
+    public Aim(){
         init();
     }
 
-    private void init() {
+    private void init(){
         Rectangle rectangle = new Rectangle(25, 25);
         rectangle.setFill(new ImagePattern(new Image("/HitApple/Aim.png")));
         getChildren().add(rectangle);
@@ -30,12 +30,12 @@ public class Aim extends Pane implements Runnable {
     }
 
     private void goHorizontal() throws InterruptedException {
-        while (goHorizontal) {
-            while (getLayoutX() <= MAX_LAYOUTx && goHorizontal) {
+        while(goHorizontal){
+            while (getLayoutX() <= MAX_LAYOUTx && goHorizontal){
                 setLayoutX(getLayoutX() + SPEED);
                 Thread.sleep(10);
             }
-            while (getLayoutX() >= BASE_LAYOUTx && goHorizontal) {
+            while (getLayoutX() >= BASE_LAYOUTx && goHorizontal){
                 setLayoutX(getLayoutX() - SPEED);
                 Thread.sleep(10);
             }
@@ -43,13 +43,14 @@ public class Aim extends Pane implements Runnable {
     }
 
 
-    private void goVertical() throws InterruptedException {
-        while (goVertical) {
-            while (getLayoutY() >= MAX_LAYOUTy && goVertical) {
+
+    private void goVertical() throws InterruptedException{
+        while(goVertical){
+            while (getLayoutY() >= MAX_LAYOUTy && goVertical){
                 setLayoutY(getLayoutY() - SPEED);
                 Thread.sleep(10);
             }
-            while (getLayoutY() <= BASE_LAYOUTy && goVertical) {
+            while (getLayoutY() <= BASE_LAYOUTy && goVertical){
                 setLayoutY(getLayoutY() + SPEED);
                 Thread.sleep(10);
             }
@@ -59,14 +60,14 @@ public class Aim extends Pane implements Runnable {
 
     @Override
     public void run() {
-        try {
-            goHorizontal();
-            goVertical = true;
-            goVertical();
+            try {
+                goHorizontal();
+                goVertical = true;
+                goVertical();
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
     }
 
     public boolean isGoHorizontal() {

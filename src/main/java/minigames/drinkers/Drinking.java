@@ -92,7 +92,7 @@ public class Drinking {
 
     public void pass() {
         connect.pass();
-
+        intoxicationBar.setHeight(0);
         npcDrunk.setText("Рівень сп'яніння оппонента : " + connect.getNpcIntoxication());
         status.setText(connect.getWinner());
     }
