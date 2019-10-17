@@ -1,6 +1,6 @@
+import core.Lobby;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import core.Lobby;
 
 public class Main extends Application {
 

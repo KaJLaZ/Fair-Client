@@ -14,7 +14,6 @@ import minigames.judge.story.Judge;
 import minigames.prediction.Prediction;
 import serverCore.GameRoot;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -29,7 +28,7 @@ public class Lobby {
     private Button nextGame;
     private GameRoot gameRoot;
 
-    public Lobby(){
+    public Lobby() {
         init();
     }
 
@@ -41,17 +40,18 @@ public class Lobby {
         initStage();
     }
 
-    private void initArrayGames(){
+    private void initArrayGames() {
         games = new ArrayList<>(Arrays.asList(
                 new AppleTheft(), new Judge(), new Drawing(), new Drinkers(), new Prediction()));
     }
 
-    private void initGame(){
+    private void initGame() {
         gameRoot = new LobbyConnection().getGameRoot();
         numberOfGame = gameRoot.getGame().getNumberOfGame();
         describe = gameRoot.getDescription();
     }
-    private void initTextAndButton(){
+
+    private void initTextAndButton() {
 
         text = new Text(describe);
         text.setLayoutX(8);
@@ -62,21 +62,22 @@ public class Lobby {
         nextGame.setLayoutX(350);
         nextGame.setLayoutY(300);
     }
-    private void initGroup(){
+
+    private void initGroup() {
         group = new Group();
         group.getChildren().addAll(text, nextGame);
     }
 
-    private void initStage(){
+    private void initStage() {
         stage = new Stage();
         stage.setScene(new Scene(group));
         stage.show();
         control();
     }
 
-    private void control(){
+    private void control() {
         nextGame.setOnAction(event -> {
-            if(numberOfGame !=5)
+            if (numberOfGame != 5)
                 games.get(numberOfGame).play();
             stage.hide();
         });

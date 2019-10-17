@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -15,18 +14,19 @@ import java.net.URL;
 public class PredictionConnection {
 
     private static final String PATH = "http://localhost:8080/gameCommands";
-    private static final String PREDICTIONER = PATH+"/prediction";
-    private static final String CONSEQUENCE = PATH+"/getConsequence";
+    private static final String PREDICTIONER = PATH + "/prediction";
+    private static final String CONSEQUENCE = PATH + "/getConsequence";
+    private static final String IS_DRUNK = PATH + "/isDrunk";
 
 
     ObjectMapper mapper = new ObjectMapper();
     private String consequence;
 
 
-    public String getConsequence(){
-        if (getBoolFromServer(PREDICTIONER)) {
+    public String getConsequence() {
+        if (getBoolFromServer(PREDICTIONER) == !getBoolFromServer(IS_DRUNK)) {
             consequence = getConsequenceFromServer();
-        }else{
+        } else {
             consequence = "Ви занадто п'яні щоб бачити передбачення";
         }
         return consequence;
@@ -35,7 +35,7 @@ public class PredictionConnection {
     private boolean getBoolFromServer(String address) {
         try {
             URL url = new URL(address);
-            return mapper.readValue(url,boolean.class);
+            return mapper.readValue(url, boolean.class);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
@@ -50,14 +50,14 @@ public class PredictionConnection {
 
     public String getConsequenceFromServer() {
         StringBuffer content;
-        try{
+        try {
             URL url = new URL(CONSEQUENCE);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null){
+            while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
 

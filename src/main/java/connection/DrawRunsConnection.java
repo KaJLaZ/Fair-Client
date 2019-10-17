@@ -13,11 +13,10 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Arrays;
 
 public class DrawRunsConnection {
-    private ObjectMapper mapper;
     String path;
+    private ObjectMapper mapper;
 
     public DrawRunsConnection() {
         mapper = new ObjectMapper();
@@ -28,7 +27,7 @@ public class DrawRunsConnection {
             String nameGoods = "";
             URL url = new URL("http://localhost:8080/gameCommands/getNameGoods");
 
-            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
@@ -36,27 +35,24 @@ public class DrawRunsConnection {
             in.close();
             con.disconnect();
             return nameGoods;
-        }
-        catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
             e.printStackTrace();
             throw new ConnectException();
-        }
-        catch (JsonParseException e) {
+        } catch (JsonParseException e) {
             e.printStackTrace();
             throw new ConnectException();
-        }
-        catch (JsonMappingException e) {
+        } catch (JsonMappingException e) {
             e.printStackTrace();
             throw new ConnectException();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new ConnectException();
         }
     }
+
     public void sendSymbol(Symbol symbol) {
         StringBuffer content;
-        try{
+        try {
             URL url = new URL("http://localhost:8080/gameCommands/checkSymbol");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
@@ -69,24 +65,24 @@ public class DrawRunsConnection {
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null){
+            while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
             in.close();
             con.disconnect();
-        }catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             System.out.println("Malformed exception");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private String[][] transformAppearance(boolean[][] appearance){
+    private String[][] transformAppearance(boolean[][] appearance) {
         String[][] newAppearance = new String[Symbol.AMOUNT_ROWS][Symbol.AMOUNT_COLUMNS];
 
-        for(int i = 0; i < Symbol.AMOUNT_ROWS; i++){
-            for(int j = 0; j < Symbol.AMOUNT_COLUMNS; j++){
-                newAppearance[i][j] = Arrays.toString(appearance[i]);
+        for (int i = 0; i < Symbol.AMOUNT_ROWS; i++) {
+            for (int j = 0; j < Symbol.AMOUNT_COLUMNS; j++) {
+                newAppearance[i][j] = String.valueOf(appearance[i][j]);
             }
         }
 

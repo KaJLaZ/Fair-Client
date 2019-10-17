@@ -15,7 +15,7 @@ public class Prediction implements Playable {
     private static Scene scene;
     private PredictionConnection connector = new PredictionConnection();
     private Text consequence;
-    private Button button=new Button("OK");
+    private Button button = new Button("OK");
 
 
     @Override
@@ -31,7 +31,7 @@ public class Prediction implements Playable {
         consequence.setText(connector.getConsequence());
         consequence.setY(35);
         consequence.setWrappingWidth(500);
-        layout.getChildren().addAll(label,consequence);
+        layout.getChildren().addAll(label, consequence);
         layout.getChildren().add(button);
         button.setLayoutX(240);
         button.setLayoutY(250);

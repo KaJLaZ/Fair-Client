@@ -35,7 +35,7 @@ public class Garden {
     @Getter
     private Rectangle[][] garden;
     @Getter
-    private int [][] map;
+    private int[][] map;
 
     public Garden() {
         connect = new AppleTheftConnection();
@@ -67,7 +67,7 @@ public class Garden {
     private void drawGarden() {
         for (int i = 0; i < garden.length; ++i) {
             for (int j = 0; j < garden[i].length; ++j) {
-                if(garden[i][j] == null) {
+                if (garden[i][j] == null) {
                     garden[i][j] = new Rectangle(j * WIDTH, i * HEIGHT, WIDTH, HEIGHT);
                 }
                 switch (map[i][j]) {

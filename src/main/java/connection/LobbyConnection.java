@@ -11,21 +11,21 @@ public class LobbyConnection {
     private ObjectMapper mapper;
     private GameRoot gameRoot;
 
-    public LobbyConnection(){
+    public LobbyConnection() {
         getGameFromServer();
     }
 
-    private void getGameFromServer(){
+    private void getGameFromServer() {
         try {
             mapper = new ObjectMapper();
             URL url = new URL(ADDRESS);
             gameRoot = mapper.readValue(url, GameRoot.class);
-            System.out.println("d");
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+
     public GameRoot getGameRoot() {
         return gameRoot;
     }

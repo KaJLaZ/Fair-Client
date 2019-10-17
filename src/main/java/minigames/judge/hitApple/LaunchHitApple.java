@@ -7,10 +7,12 @@ public class LaunchHitApple {
 
     private Stage stage;
     private Court court;
-    public LaunchHitApple(){
+
+    public LaunchHitApple() {
         init();
     }
-    private void init(){
+
+    private void init() {
         stage = new Stage();
         court = new Court();
         Scene scene = new Scene(court);

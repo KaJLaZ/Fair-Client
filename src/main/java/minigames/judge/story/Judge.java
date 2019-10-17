@@ -2,16 +2,15 @@ package minigames.judge.story;
 
 import connection.ChooseFateConnection;
 import connection.HitAppleConnection;
+import core.Lobby;
 import core.Playable;
-
-import minigames.judge.hitApple.LaunchHitApple;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import core.Lobby;
+import minigames.judge.hitApple.LaunchHitApple;
 import serverCore.Litigation;
 
 public class Judge implements Playable {

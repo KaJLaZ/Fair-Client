@@ -22,7 +22,7 @@ public class AppleTheftConnection {
     private static ObjectMapper mapper = new ObjectMapper();
 
     @Getter
-    private int [][] map;
+    private int[][] map;
 
     public int[][] getArray() {
         map = getMapFromServer(ARRAY);
@@ -57,10 +57,10 @@ public class AppleTheftConnection {
         return getBoolFromServer(WiN);
     }
 
-    private int[][] getMapFromServer (String address) {
+    private int[][] getMapFromServer(String address) {
         try {
             URL url = new URL(address);
-            return mapper.readValue(url,int[][].class);
+            return mapper.readValue(url, int[][].class);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
@@ -76,7 +76,7 @@ public class AppleTheftConnection {
     private boolean getBoolFromServer(String address) {
         try {
             URL url = new URL(address);
-            return mapper.readValue(url,boolean.class);
+            return mapper.readValue(url, boolean.class);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {
@@ -89,7 +89,7 @@ public class AppleTheftConnection {
         return false;
     }
 
-    private void print(){
+    private void print() {
         String message = new String();
         for (int i = 0; i < map.length; ++i) {
             for (int j = 0; j < map[i].length; ++j) {

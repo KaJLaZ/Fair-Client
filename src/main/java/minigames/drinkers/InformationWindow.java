@@ -1,4 +1,4 @@
-package minigames.appleTheft;
+package minigames.drinkers;
 
 import core.Lobby;
 import javafx.scene.Group;
@@ -18,6 +18,7 @@ public class InformationWindow {
     private Label info;
     private Button button;
 
+
     public InformationWindow(String message) {
         window = new Stage();
         layout = new Group();
@@ -25,6 +26,7 @@ public class InformationWindow {
         info = new Label(message);
         button = new Button("OK");
     }
+
 
     public void display() {
         info.setLayoutX(50);

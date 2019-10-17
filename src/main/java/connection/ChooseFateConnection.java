@@ -17,7 +17,7 @@ public class ChooseFateConnection {
 
     private ObjectMapper mapper;
 
-    public Litigation getLitigationFromServer(){
+    public Litigation getLitigationFromServer() {
         try {
             mapper = new ObjectMapper();
             URL url = new URL(ADDRESS_GET_LITIGATION);
@@ -30,19 +30,19 @@ public class ChooseFateConnection {
 
     public void forgivePrisoner() {
         StringBuffer content = new StringBuffer();
-        try{
+        try {
             URL url = new URL(ADDRESS_SEND_RESULT);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             content = new StringBuffer();
-            while ((inputLine = in.readLine()) != null){
+            while ((inputLine = in.readLine()) != null) {
                 content.append(inputLine);
             }
             in.close();
             con.disconnect();
-        }catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             System.out.println("Malformed exception");
         } catch (IOException e) {
             e.printStackTrace();
@@ -50,7 +50,6 @@ public class ChooseFateConnection {
         System.out.println(content);
 
     }
-
 
 
 }

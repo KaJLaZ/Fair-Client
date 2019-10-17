@@ -1,8 +1,6 @@
 package minigames.drawing;
 
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -20,7 +18,7 @@ public class DrawField {
     private static final int START_WIDTH = 400;
 
     private String productName;
-    private boolean [][] box;
+    private boolean[][] box;
     private Rectangle[][] field;
     private Label name;
 
@@ -45,17 +43,15 @@ public class DrawField {
         }
     }
 
-    public void draw(int x,int y) {
+    public void draw(int x, int y) {
         try {
             box[x][y] = !box[x][y];
             if (box[x][y]) {
                 field[x][y].setFill(Paint.valueOf("green"));
-            }
-            else {
+            } else {
                 field[x][y].setFill(Paint.valueOf("red"));
             }
-        }
-        catch (IndexOutOfBoundsException e) {
+        } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
         }
     }

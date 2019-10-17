@@ -9,12 +9,13 @@ public class Court extends Group {
     protected Aim aim;
     private Rectangle r;
     private Target prisoner;
-    public Court(){
+
+    public Court() {
         init();
     }
 
-    private void init(){
-        r = new Rectangle(1200,700, Color.GREEN);
+    private void init() {
+        r = new Rectangle(1200, 700, Color.GREEN);
         aim = new Aim();
         prisoner = new Target();
         getChildren().addAll(r, prisoner, aim);

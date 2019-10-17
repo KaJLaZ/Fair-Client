@@ -13,21 +13,19 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HitAppleConnection {
+    private static final String ADDRESS = "http://localhost:8080/gameCommands/checkHit";
     private ObjectMapper mapper;
     private URL url;
 
-    private static final String ADDRESS = "http://localhost:8080/gameCommands/checkHit";
-
-
-    public void sendCoordinateOfShut(double x, double y){
+    public void sendCoordinateOfShut(double x, double y) {
         mapper = new ObjectMapper();
         StringBuffer content = new StringBuffer();
-        try{
+        try {
             url = new URL(ADDRESS);
 
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
-            String urlParameters ="x=" + x + "&y=" + y;
+            String urlParameters = "x=" + x + "&y=" + y;
             con.setDoOutput(true);
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
             out.writeBytes(urlParameters);
@@ -36,7 +34,7 @@ public class HitAppleConnection {
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             in.close();
             con.disconnect();
-        }catch (MalformedURLException e){
+        } catch (MalformedURLException e) {
             System.out.println("Malformed exception");
         } catch (IOException e) {
             e.printStackTrace();
@@ -44,12 +42,12 @@ public class HitAppleConnection {
         System.out.println(content);
     }
 
-    public boolean isHaveApple(){
+    public boolean isHaveApple() {
         String address = "http://localhost:8080/gameCommands/hasApple";
         mapper = new ObjectMapper();
         try {
             URL url = new URL(address);
-            return mapper.readValue(url,boolean.class);
+            return mapper.readValue(url, boolean.class);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (JsonParseException e) {

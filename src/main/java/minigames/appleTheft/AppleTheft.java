@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import lombok.Getter;
 
 public class AppleTheft implements Playable {
 
@@ -28,14 +27,25 @@ public class AppleTheft implements Playable {
 
     @Override
     public void play() {
-        for (Rectangle[] R: garden.getGarden()){
-            for (Rectangle R2: R){
+        for (Rectangle[] R : garden.getGarden()) {
+            for (Rectangle R2 : R) {
                 layout.getChildren().add(R2);
             }
         }
         scene.setOnKeyPressed(new Mover());
         window.setScene(scene);
         window.show();
+    }
+
+    private void showInfoWhenGameEnded() {
+        if (garden.getConnect().isGameEnded()) {
+            window.hide();
+            if (garden.getConnect().isWon()) {
+                new InformationWindow("Ви виграли!").display();
+            } else {
+                new InformationWindow("Ви програли(").display();
+            }
+        }
     }
 
     private class Mover implements EventHandler<KeyEvent> {
@@ -56,18 +66,6 @@ public class AppleTheft implements Playable {
                     break;
             }
             showInfoWhenGameEnded();
-        }
-    }
-
-    private void showInfoWhenGameEnded() {
-        if(garden.getConnect().isGameEnded()) {
-            window.hide();
-            if(garden.getConnect().isWon()) {
-                new InformationWindow("Ви виграли!").display();
-            }
-            else {
-                new InformationWindow("Ви програли(").display();
-            }
         }
     }
 }
