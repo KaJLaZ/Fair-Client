@@ -5,7 +5,6 @@ import core.Playable;
 import javafx.geometry.Point2D;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 public class Drinkers implements Playable {
@@ -40,14 +39,6 @@ public class Drinkers implements Playable {
         } else {
             if (drinking.getLeave().contains(pointer)) {
                 drinking.pass();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeight(300);
-                alert.setTitle("Результат гри");
-                alert.setHeaderText("Результат");
-                alert.setContentText(drinking.getStatus().getText());
-                alert.showAndWait();
-
-
                 stage.hide();
                 new Lobby();
             }
